@@ -42,34 +42,34 @@ export default class HistoricalDataTable extends React.Component {
         return dataArr;
     }
 
-            render(){
-                this.tableData()
-        let columnHeaders = this.tableHeader();
-        let rowValues = this.tableData();
-        return (
-          <>
-            <table class="centered responsive-table">
-              <thead>
-                <tr>
-                  {columnHeaders.map((item) => (
-                    <th>{item}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {/* <tr>
-                {rowValues.map((item) => {
-                    console.log(item);
-                    item.map((i) => {console.log(i);<td>{i}</td>})
-                })}
-                </tr> */}
-                {rowValues.map((item) => {
-                    // <tr>{item.map((i) => {console.log(i);<td>{i}</td>})}</tr>
-                    <tr>{item}</tr>
-                })}
-              </tbody>
-            </table>
-          </>
-        );
+  render() {
+    this.tableData()
+    let columnHeaders = this.tableHeader();
+    let rowValues = this.tableData();
+    let tableRows = [];
+    if (rowValues) {
+      rowValues.map((row) => {
+        let r = [];
+        tableRows.push(<tr>
+          {row.map((r) => (<td>{r}</td>))}
+        </tr>)
+      })
     }
+    return (
+      <>
+        <table class="centered responsive-table">
+          <thead>
+            <tr>
+              {columnHeaders.map((item) => (
+                <th>{item}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {tableRows}
+          </tbody>
+        </table>
+      </>
+    );
+  }
 }
