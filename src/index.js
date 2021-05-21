@@ -4,9 +4,11 @@ import HistoricalComponent from './Components/HistoricalComponent/historicalComp
 import './index.css';
 import './css/materialize.min.css';
 import reportWebVitals from './reportWebVitals';
+import Header from './Components/Header/Header';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Header/>
     <HistoricalComponent />
   </React.StrictMode>,
   document.getElementById('root')

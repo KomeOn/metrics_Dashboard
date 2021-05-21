@@ -19,6 +19,14 @@ export default class HistoricalDataFetch extends React.Component {
     render() {
         return (
             <div class="row">
+                <div class="nav-content">
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a href="#test1">Test 1</a></li>
+                        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+                        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+                        <li class="tab"><a href="#test4">Test 4</a></li>
+                    </ul>
+                </div>
                 <button class="col" onClick={(e) => this.fetchData(e, Object.keys(companySymbols)[0])}>{Object.keys(companySymbols)[0]}</button>
                 <button class="col" onClick={(e) => this.fetchData(e, Object.keys(companySymbols)[1])}>{Object.keys(companySymbols)[1]}</button>
                 <button class="col" onClick={(e) => this.fetchData(e, Object.keys(companySymbols)[2])}>{Object.keys(companySymbols)[2]}</button>
