@@ -9,6 +9,7 @@ import Header from './Components/Header/Header';
 ReactDOM.render(
   <React.StrictMode>
     <Header/>
+    <hr style={{"background": "#fff", "margin": "0px"}} />
     <HistoricalComponent />
   </React.StrictMode>,
   document.getElementById('root')

@@ -57,18 +57,26 @@ export default class HistoricalDataTable extends React.Component {
     }
     return (
       <>
-        <table class="centered responsive-table">
-          <thead>
-            <tr>
+      <div className="container" style={{"marginTop": "35px"}}>
+    
+       <div class="card horizontal">
+      <div class="card-stacked">
+
+        <table class="centered responsive-table highlight">
+          <thead className="indigo darken-3">
+            <tr style={{"color":"white" }}>
               {columnHeaders.map((item) => (
                 <th>{item}</th>
-              ))}
+                ))}
             </tr>
           </thead>
           <tbody>
             {tableRows}
           </tbody>
         </table>
+                </div>
+                </div>
+                </div>
       </>
     );
   }
