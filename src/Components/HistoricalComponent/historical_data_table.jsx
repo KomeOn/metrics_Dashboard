@@ -48,7 +48,7 @@ export default class HistoricalDataTable extends React.Component {
     let rowValues = this.tableData();
     let tableRows = [];
     if (rowValues) {
-      rowValues.map((row) => {
+      rowValues.map((row) =>{
         let r = [];
         tableRows.push(<tr>
           {row.map((r) => (<td>{r}</td>))}
