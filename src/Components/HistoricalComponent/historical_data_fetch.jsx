@@ -10,10 +10,11 @@ export default class HistoricalDataFetch extends React.Component {
 
     async fetchData(event, compName = 'IndiaMART') {
         let companyName = companySymbols[compName]
-        // const respJson = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
-        // const data = await respJson.json()
+        const respJson = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
+        const data = await respJson.json()
 
-        this.props.retrieveData(demoData)
+        // this.props.retrieveData(demoData)
+        this.props.retrieveData(data)
     }
 
     render() {
