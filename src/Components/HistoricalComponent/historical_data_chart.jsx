@@ -9,6 +9,7 @@ export default class HistoricalDataChart extends React.Component {
     }
 
 	render() {
+		
 		const options = {
 			exportEnabled: true,
 			title: {
