@@ -4,7 +4,7 @@ import HistoricalComponent from './Components/HistoricalComponent/historicalComp
 import './index.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './Components/Header/header.jsx';
+import Header from './Components/Header/Header.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
