@@ -14,11 +14,11 @@ export default class HistoricalDataFetch extends React.Component {
 
     async fetchData(event, compName = 'IndiaMART') {
         let companyName = companySymbols[compName]
-        const respJson = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
-        const data = await respJson.json()
+        // const respJson = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
+        // const data = await respJson.json()
         
-        // this.props.retrieveData(demoData)
-        this.props.retrieveData(data)
+        this.props.retrieveData(demoData)
+        // this.props.retrieveData(data)
     }
 
     handleActive(id) {
@@ -30,19 +30,19 @@ export default class HistoricalDataFetch extends React.Component {
 
     render() {
         return (
-            <nav class="nav-extended indigo darken-3">
-            <div class="nav-content center">
-            <ul class="tabs tabs-transparent" style={{"display": "flex", "justifyContent": "space-evenly"}}>
-                <li class="tab " id="1">
+            <nav className="nav-extended indigo darken-3">
+            <div className="nav-content center">
+            <ul className="tabs tabs-transparent" style={{"display": "flex", "justifyContent": "space-evenly"}}>
+                <li className="tab " id="1">
                 <a onClick={(e) => {this.fetchData(e, Object.keys(companySymbols)[0]); this.handleActive(1) }}>{Object.keys(companySymbols)[0]}</a>
                 </li>
-                <li class="tab " id="2">
+                <li className="tab " id="2">
                 <a onClick={(e) => {this.fetchData(e, Object.keys(companySymbols)[1]); this.handleActive(2) }}>{Object.keys(companySymbols)[1]}</a>
                 </li>
-                <li class="tab " id="3">
+                <li className="tab " id="3">
                 <a onClick={(e) => {this.fetchData(e, Object.keys(companySymbols)[2]); this.handleActive(3) }}>{Object.keys(companySymbols)[2]}</a>
                 </li>
-                <li class="tab " id="4">
+                <li className="tab " id="4">
                 <a onClick={(e) => {this.fetchData(e, Object.keys(companySymbols)[3]); this.handleActive(4) }}>{Object.keys(companySymbols)[3]}</a>
                 </li>
             </ul>
