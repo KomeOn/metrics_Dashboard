@@ -14,15 +14,14 @@ export default class HistoricalDataFetch extends React.Component {
 
     async fetchData(event, compName = 'IndiaMART') {
         let companyName = companySymbols[compName]
-        // const respJsonData = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
-        // const respJsonKPI = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${compName}&apikey=DIEVPM711FQ1O9HE`)
-        // const data = await respJsonData.json()
-        // const kpis = await respJsonKPI.json()
-        // console.log("KPI API: ", respJsonKPI)
-        // console.log("KPI API JSON: ", kpis)
+        const respJsonData = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
+        const respJsonKPI = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${compName}&apikey=DIEVPM711FQ1O9HE`)
+        const data = await respJsonData.json()
+        const kpis = await respJsonKPI.json()
+        console.log("KPI API: ", respJsonKPI)
+        console.log("KPI API JSON: ", kpis)
         // this.props.retrieveData(demoData, kpis)
-        this.props.retrieveData(demoData)
-        // this.props.retrieveData(data)
+        this.props.retrieveData(data,kpis)
 
     }
 

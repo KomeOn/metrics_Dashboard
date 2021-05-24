@@ -9,6 +9,7 @@ export default class HistoricalDataChart extends React.Component {
     }
 
 	render() {
+		
 		const options = {
 			exportEnabled: true,
 			title: {
@@ -64,6 +65,7 @@ export default class HistoricalDataChart extends React.Component {
 			})
 		}
 		console.log("dataPoints",dataPoints)
-		chart.render();
+		if(dataPoints)
+			chart.render();
 	}
 }
