@@ -1,5 +1,6 @@
 import React from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+// import data from '../../'
 
 
 export default class HistoricalDataKPI extends React.Component {
@@ -9,42 +10,35 @@ export default class HistoricalDataKPI extends React.Component {
         this.state = {
             KPIarr: ["ADJUSTED CLOSE", "VOLUME",  "HIGH", "LOW"]
         }
-        this.openModal = this.openModal.bind(this)
     }
 
-    componentDidMount() {
-        var elems = document.querySelectorAll('.modal');
-       M.Modal.init(elems);
-    }
     
-    componentDidUpdate() {
-        var elems = document.querySelectorAll('.modal');
-        M.Modal.init(elems);
-    }
 
-    KPIs() {
-        let arr = this.props.kpi || {}
-        console.log("KPI: ",arr)
-        let JsonArr = Object.entries(arr)
-        console.log("KPI: ",JsonArr)
-        // let index = [];
-        // index = JsonArr[0].map((keys) => {
-        // return keys.slice(3).toUpperCase()
-        // })
-        // console.log("KPI: ", index)
+    // KPIs() {
+    //     // let arr = this.props.kpi || {}
+    //     // console.log("KPI: ",arr)
+    //     // let JsonArr = Object.entries(arr)
+    //     // console.log("KPI: ",JsonArr)
+    //     // let index = [];
+    //     // index = JsonArr[0].map((keys) => {
+    //     // return keys.slice(3).toUpperCase()
+    //     // })
+    //     // console.log("KPI: ", index)
         
-        return JsonArr
-    }
+        
+    //     return JsonArr
+    // }
 
-    openModal(evt, index) {
-        console.log("clicked by: ", index)
-        console.log("clicked by: ", evt)
+    // openModal(evt, index) {
+    //     console.log("clicked by: ", index)
+    //     console.log("clicked by: ", evt)
         
-    }
+    // }
 
     render() {
-        console.log("props: ", this.props.kpi)
-        let index = this.KPIs()
+        // console.log("props: ", this.props.kpi)
+        // let index = this.KPIs()
+        // let index = 
         return (
             <div className="row" style={{"marginTop": "35px"}}>            
                 {index.map((item, index) => <KPI item={item} index={index} openModal={this.openModal}/>)}
