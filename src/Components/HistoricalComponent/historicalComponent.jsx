@@ -4,6 +4,7 @@ import HistoricalDataTable from './historical_data_table';
 import HistoricalDataChart from './historical_data_chart';
 import HistoricalDataKPI from './historical_data_KPI';
 import '../../css/historical.css';
+import HistoricalDataKpiChart from './historical_data_kpi_chart';
 
 export default class HistoricalComponent extends React.Component{
     constructor(props){
@@ -25,6 +26,7 @@ export default class HistoricalComponent extends React.Component{
                     <HistoricalDataFetch retrieveData={this.retrieveData} />
                 </div>
                 <HistoricalDataKPI data={this.state.data} />
+                <HistoricalDataKpiChart data={this.state.data}/>
                 <HistoricalDataChart data={this.state.data} />
                 <HistoricalDataTable data={this.state.data} />
             </>
