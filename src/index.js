@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HistoricalComponent from './Components/HistoricalComponent/historicalComponent';
 import './index.css';
-import './css/materialize.min.css';
+import 'materialize-css/dist/css/materialize.min.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './Components/Header/Header';
+import Header from './Components/Header/header.jsx';
 
 ReactDOM.render(
   <React.StrictMode>

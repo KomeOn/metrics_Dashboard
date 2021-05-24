@@ -21,8 +21,9 @@ export default class HistoricalDataTable extends React.Component {
     index = JsonArr[0].map((keys) => {
       return keys.slice(3).toUpperCase()
     })
+    console.log("header: ", index)
     if (index.length > 0)
-      index.unshift("DATE")
+    index.unshift("DATE")
     return index;
   }
 
@@ -58,6 +59,8 @@ export default class HistoricalDataTable extends React.Component {
     }
     let first5 = [];
     let first5table = []
+    let first3 = [];
+    let first3table = [];
     if (rowValues) {
       first5 = rowValues.slice(0, 5).map((row) => {
         let r = [];
@@ -65,6 +68,12 @@ export default class HistoricalDataTable extends React.Component {
           {row.map((r) => (<td>{r}</td>))}
         </tr>)
       })
+      // first3 = rowValues.slice(0, 3).map((row) => {
+      //   let r = [];
+      //   first3table.push(<tr>
+      //     {row.map(r => (<td>{r}</td>))}
+      //   </tr>)
+      // })
       // first5table.push(<tr>
       //   <td></td>
       //   <td></td>
@@ -79,13 +88,13 @@ export default class HistoricalDataTable extends React.Component {
     }
     return (
       <>
-        <div className="container" style={{ "marginTop": "35px" }}>
+        <div className="container center" style={{ "marginTop": "35px", "width": "95%" }}>
 
-          <div class="card horizontal">
-            <div class="card-stacked">
+          <div className="card horizontal" style={{"width": "100%"}}>
+            <div className="card-stacked" style={{"width": "100%"}}>
 
-              <table class="centered responsive-table highlight">
-                <thead className="indigo darken-3">
+              <table className="centered responsive-table highlight" style={{"width": "100%"}}>
+                <thead className="indigo darken-3" style={{"width": "fit-content"}}>
                   <tr style={{ "color": "white" }}>
                     {columnHeaders.map((item) => (
                       <th>{item}</th>
@@ -99,10 +108,12 @@ export default class HistoricalDataTable extends React.Component {
               </table>
             </div>
           </div>
-        </div>
-        <a class="btn-floating btn-large waves-effect waves-light red center" 
+        { this.props.data && 
+          <a className="btn-floating btn-large waves-effect waves-light red" 
           onClick={() => {this.setState({clickExpand : !this.state.clickExpand})}}>
-            <i class="material-icons">expand_more</i></a>
+            {this.state.clickExpand ? <i className="material-icons">expand_less</i>: <i className="material-icons">expand_more</i>}
+            </a>}
+        </div>
       </>
     );
   }
