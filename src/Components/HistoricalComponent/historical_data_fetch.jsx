@@ -22,6 +22,7 @@ export default class HistoricalDataFetch extends React.Component {
         console.log("KPI API JSON: ", kpis)
         this.props.retrieveData(demoData, kpis)
         // this.props.retrieveData(data)
+
     }
 
     handleActive(id) {
