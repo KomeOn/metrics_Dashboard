@@ -14,30 +14,30 @@ export default class HistoricalDataKPI extends React.Component {
 
     
 
-    // KPIs() {
-    //     // let arr = this.props.kpi || {}
-    //     // console.log("KPI: ",arr)
-    //     // let JsonArr = Object.entries(arr)
-    //     // console.log("KPI: ",JsonArr)
-    //     // let index = [];
-    //     // index = JsonArr[0].map((keys) => {
-    //     // return keys.slice(3).toUpperCase()
-    //     // })
-    //     // console.log("KPI: ", index)
+    KPIs() {
+        let arr = this.props.kpi || {}
+        console.log("KPI: ",arr)
+        let JsonArr = Object.entries(arr)
+        console.log("KPI: ",JsonArr)
+        // let index = [];
+        // index = JsonArr[0].map((keys) => {
+        // return keys.slice(3).toUpperCase()
+        // })
+        // console.log("KPI: ", index)
         
         
-    //     return JsonArr
-    // }
+        return JsonArr
+    }
 
-    // openModal(evt, index) {
-    //     console.log("clicked by: ", index)
-    //     console.log("clicked by: ", evt)
+    openModal(evt, index) {
+        console.log("clicked by: ", index)
+        console.log("clicked by: ", evt)
         
-    // }
+    }
 
     render() {
         // console.log("props: ", this.props.kpi)
-        // let index = this.KPIs()
+        let index = this.KPIs()
         // let index = 
         return (
             <div className="row" style={{"marginTop": "35px"}}>            

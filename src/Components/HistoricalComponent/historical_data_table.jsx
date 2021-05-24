@@ -89,7 +89,6 @@ export default class HistoricalDataTable extends React.Component {
     return (
       <>
         <div className="container center" style={{ "marginTop": "35px", "width": "95%" }}>
-
           <div className="card horizontal" style={{"width": "100%"}}>
             <div className="card-stacked" style={{"width": "100%"}}>
 
