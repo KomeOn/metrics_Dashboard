@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import M from 'materialize-css/dist/js/materialize.min.js';
+
 
 export default class HistoricalDataKPI extends React.Component {
     constructor(props){
@@ -8,6 +10,16 @@ export default class HistoricalDataKPI extends React.Component {
         this.state = {
             KPIarr: ["ADJUSTED CLOSE", "VOLUME",  "HIGH", "LOW"]
         }
+    }
+
+    componentDidMount() {
+        var elems = document.querySelectorAll('.modal');
+       M.Modal.init(elems);
+    }
+    
+    componentDidUpdate() {
+        var elems = document.querySelectorAll('.modal');
+        M.Modal.init(elems);
     }
 
     KPIs() {
@@ -39,15 +51,29 @@ export default class HistoricalDataKPI extends React.Component {
 function KPI(props) {
     console.log(props)
     return (
-        <div className="col s12 m6 l3">
-            <div className="card horizontal hoverable">
-                <div className="card-stacked">
-                    <p className="card-title m4">{props.item[0].slice(3)}</p>
-                    <div className="card-content">
-                        <p>This item name is : {props.item[1]}</p>
+        <>
+            <div className="col s12 m6 l3">
+                <div className="card horizontal hoverable modal-trigger">
+                    <div className="card-stacked">
+                        <p className="card-title m4">{props.item[0].slice(3)}</p>
+                        <div className="card-content">
+                            <p>This item name is : {props.item[1]}</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+                        </div>
                     </div>
                 </div>
+            <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>{props.item[0].slice(3)}</h4>
+                    <p>{props.item[1]}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
             </div>
-        </div>
+            </div>
+        </>
     )
 }
