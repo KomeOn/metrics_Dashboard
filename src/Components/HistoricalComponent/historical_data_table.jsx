@@ -65,17 +65,6 @@ export default class HistoricalDataTable extends React.Component {
           {row.map((r) => (<td>{r}</td>))}
         </tr>)
       })
-      // first5table.push(<tr>
-      //   <td></td>
-      //   <td></td>
-      //   <td></td>
-      //   <td></td>
-      //   <td></td>
-      //   <td></td>
-      //   <td></td>
-      //   <td class="btn-floating btn-large waves-effect waves-light red" onClick={()=>console.log("CLicked view more")}><i class="material-icons">expand_more</i></td>
-      //   <td onClick={()=>console.log("CLicked view more")}><i class="material-icons">expand_more</i></td>
-      //   </tr>)
     }
     return (
       <>
@@ -94,7 +83,6 @@ export default class HistoricalDataTable extends React.Component {
                 </thead>
                 <tbody>
                   {this.state.clickExpand ? tableRows : first5table}
-                  {/* {first5table} */}
                 </tbody>
               </table>
             </div>
@@ -102,7 +90,7 @@ export default class HistoricalDataTable extends React.Component {
         </div>
         <a class="btn-floating btn-large waves-effect waves-light red center" 
           onClick={() => {this.setState({clickExpand : !this.state.clickExpand})}}>
-            <i class="material-icons">expand_more</i></a>
+            <i class="material-icons">{!this.state.clickExpand ? "expand_more" : "expand_less"}</i></a>
       </>
     );
   }
