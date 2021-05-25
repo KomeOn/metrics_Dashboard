@@ -1,14 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
-import M from 'materialize-css/dist/js/materialize.min.js';
 import '../../css/header.css';
 // import './header';
 
 function Header(props) {
-    useEffect(() => {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems);
-      });
+    
     return (
         <>
             <nav className="nav-extended indigo darken-3">

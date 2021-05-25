@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HistoricalComponent from './Components/HistoricalComponent/historicalComponent';
 import './index.css';
-import 'materialize-css/dist/css/materialize.min.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import reportWebVitals from './reportWebVitals';
 import Header from './Components/Header/header.jsx';
 
