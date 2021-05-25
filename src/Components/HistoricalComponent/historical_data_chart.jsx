@@ -9,6 +9,7 @@ export default class HistoricalDataChart extends React.Component {
     }
 
 	render() {
+<<<<<<< HEAD
 		let dateArray = [];
 		let dates = Object.keys(this.props.data)
 		dateArray = dates.map((d) => {
@@ -31,6 +32,9 @@ export default class HistoricalDataChart extends React.Component {
 				y :temp2 
 			})
 		}
+=======
+		
+>>>>>>> 8b11ae9c55277f9b6c3791b78d66dcb1f4f05466
 		const options = {
 			exportEnabled: true,
 			title: {
