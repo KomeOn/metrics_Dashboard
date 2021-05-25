@@ -138,7 +138,7 @@ export default class HistoricalDataTable extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.clickExpand ? tableRows : first5table}
+              {this.state.clickExpand ? this.tableRows : this.first5table}
             </tbody>
           </table>
 
