@@ -16,12 +16,15 @@ export default class HistoricalDataFetch extends React.Component {
         let companyName = companySymbols[compName]
         const respJsonData = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
         const respJsonKPI = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${compName}&apikey=DIEVPM711FQ1O9HE`)
+        const respJsonKPIChart = await fetch(`https://www.alphavantage.co/query?function=RSI&symbol=${compName}&interval=weekly&time_period=10&series_type=open&apikey=${apikey}`);
         const data = await respJsonData.json()
         const kpis = await respJsonKPI.json()
+        const kpiChart = await respJsonKPIChart.json()
         console.log("KPI API: ", respJsonKPI)
         console.log("KPI API JSON: ", kpis)
+        console.log("KPI Chart",kpiChart);
         // this.props.retrieveData(demoData, kpis)
-        this.props.retrieveData(data,kpis)
+        this.props.retrieveData(data,kpis,kpiChart);
 
     }
 

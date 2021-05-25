@@ -12,13 +12,14 @@ export default class HistoricalComponent extends React.Component{
         this.retrieveData = this.retrieveData.bind(this);
         this.state = {
             data: '',
-            kpi: ''
+            kpi: '',
+            kpiChart:''
         }
     }
 
-    retrieveData(data, kpi) {
+    retrieveData(data, kpi, kpiChart) {
         console.log("KPI's: ", kpi)
-        this.setState({data: data['Monthly Adjusted Time Series'], kpi: kpi})
+        this.setState({data: data['Monthly Adjusted Time Series'], kpi: kpi, kpiChart:kpiChart})
         console.log(this.state.data)
     }
     render() {
@@ -27,7 +28,8 @@ export default class HistoricalComponent extends React.Component{
                 <div className="boxShadow">
                     <HistoricalDataFetch retrieveData={this.retrieveData} />
                 </div>
-                <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
+                {/* <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} /> */}
+                <HistoricalDataKpiChart data = {this.state.kpiChart}/>
                 <HistoricalDataChart data={this.state.data} />
                 <HistoricalDataTable data={this.state.data} />
             </>

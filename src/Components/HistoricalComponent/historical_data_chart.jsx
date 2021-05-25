@@ -9,6 +9,28 @@ export default class HistoricalDataChart extends React.Component {
     }
 
 	render() {
+		let dateArray = [];
+		let dates = Object.keys(this.props.data)
+		dateArray = dates.map((d) => {
+			d = d.split("-");
+			let newDate = new Date(d[0], d[1] - 1, d[2]);
+			return newDate.getTime();
+		})
+		let valuesArray = [];
+		let values = Object.values(this.props.data);
+		valuesArray = values.map((v) => {
+			return Object.values(v).slice(0,4);
+		})
+		for(let i=0; i<dates.length;i++) {
+			let temp1 = Object.values(valuesArray[i])
+			 let temp2 = temp1.map((t) =>{
+				 return parseInt(t);
+			 })
+			dataPoints.push({
+				x : dateArray[i],
+				y :temp2 
+			})
+		}
 		const options = {
 			exportEnabled: true,
 			title: {
@@ -32,39 +54,13 @@ export default class HistoricalDataChart extends React.Component {
 		}
 		return (
 		<div>
+			{dataPoints.length>0 &&
 			<CanvasJSChart options = {options}
 				 onRef={ref => this.chart = ref}
 			/>
+	}
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		</div>
 		);
-	}
-	componentDidMount(){
-		var chart = this.chart;
-		let dateArray = [];
-		let dates = Object.keys(this.props.data)
-		dateArray = dates.map((d) => {
-			d = d.split("-");
-			let newDate = new Date(d[0], d[1] - 1, d[2]);
-			return newDate.getTime();
-		})
-		let valuesArray = [];
-		let values = Object.values(this.props.data);
-		valuesArray = values.map((v) => {
-			return Object.values(v).slice(0,4);
-		})
-		for(let i=0; i<dates.length;i++) {
-			let temp1 = Object.values(valuesArray[i])
-			 let temp2 = temp1.map((t) =>{
-				 return parseInt(t);
-			 })
-			dataPoints.push({
-				x : dateArray[i],
-				y :temp2 
-			})
-		}
-		console.log("dataPoints",dataPoints)
-		if(dataPoints)
-			chart.render();
 	}
 }
