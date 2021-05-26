@@ -5,33 +5,30 @@ import '../../css/header.css';
 class Header extends React.Component {
     constructor(props) {
         super(props)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     render() {
         return (
             <>
-                <nav class="navbar navbar-dark fixed-top header">
+                {/* <nav class="navbar navbar-dark fixed-top header">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="#">
                             <h3 class="header-title">Metrics Dashboard</h3>
                         </a>
-                        <form class="d-flex input-group w-auto">
-                            <input
-                                type="search"
-                                class="form-control"
-                                placeholder="Search for a stock"
-                                aria-label="Search"
-                            />
-                            <button
-                                class="btn btn-primary"
-                                type="button"
-                                data-mdb-ripple-color="dark"
-                            >
-                                Search
-                            </button>
-                        </form>
+                        <div class="select">
+                            <select name="slct" id="slct">
+                                <option selected disabled>Choose a tech stock</option>
+                                <option value="HCL">HCL</option>
+                                <option value="IndiaMART">IndiaMART</option>
+                                <option value="TCS">TCS</option>
+                                <option value="Tech Mahindra">Tech Mahindra</option>
+                                <option value="Infosys">Infosys</option>
+                                <option value="IBM">IBM</option>
+                            </select>
+                        </div>
                     </div>
-                </nav>
+                </nav> */}
             </>
         );
     }
