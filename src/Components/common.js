@@ -87,3 +87,110 @@ export const demoData = {
           },
     }
 }
+
+export const kpiChart1 = {
+  "Meta Data": {
+    "1: Symbol": "IBM",
+    "2: Indicator": "Relative Strength Index (RSI)",
+    "3: Last Refreshed": "2021-05-24",
+    "4: Interval": "weekly",
+    "5: Time Period": 10,
+    "6: Series Type": "open",
+    "7: Time Zone": "US/Eastern Time"
+  },
+  "Technical Analysis: RSI": {
+    "2021-05-24": {
+      "RSI": "75.1354"
+    },
+    "2021-05-21": {
+      "RSI": "74.5561"
+    },
+    "2021-05-14": {
+      "RSI": "78.1510"
+    },
+    "2021-05-07": {
+      "RSI": "75.3214"
+    },
+    "2021-04-30": {
+      "RSI": "74.1698"
+    },
+    "2021-04-23": {
+      "RSI": "64.7851"
+    },
+    "2021-04-16": {
+      "RSI": "68.3852"
+    },
+    "2021-04-09": {
+      "RSI": "66.7701"
+    },
+    "2021-04-01": {
+      "RSI": "72.4159"
+    }
+  }
+};
+
+export const kpiChart2 = {
+  "Meta Data": {
+    "1: Symbol": "IBM",
+    "2: Indicator": "Moving Average Convergence/Divergence (MACD)",
+    "3: Last Refreshed": "2021-05-24",
+    "4: Interval": "daily",
+    "5.1: Fast Period": 12,
+    "5.2: Slow Period": 26,
+   " 5.3: Signal Period": 9,
+    "6: Series Type": "open",
+    "7: Time Zone": "US/Eastern"
+    },
+    "Technical Analysis: MACD": {
+      "2021-05-24": {
+      "MACD_Signal": "2.6907",
+      "MACD": "2.2222",
+      "MACD_Hist": "-0.4685"
+      },
+      "2021-05-21": {
+      "MACD_Signal": "2.8079",
+      "MACD": "2.2618",
+      "MACD_Hist": "-0.5461"
+      },
+      "2021-05-20": {
+      "MACD_Signal": "2.9444",
+      "MACD": "2.3588",
+      "MACD_Hist": "-0.5856"
+      },
+      "2021-05-19": {
+      "MACD_Signal": "3.0908",
+      "MACD": "2.5665",
+      "MACD_Hist": "-0.5243"
+      },
+      "2021-05-18": {
+      "MACD_Signal": "3.2219",
+      "MACD": "2.8756",
+      "MACD_Hist": "-0.3462"
+      },
+      "2021-05-17": {
+      "MACD_Signal": "3.3084",
+      "MACD": "2.9779",
+      "MACD_Hist": "-0.3305"
+      },
+      "2021-05-14": {
+      "MACD_Signal": "3.3910",
+      "MACD": "3.0998",
+      "MACD_Hist": "-0.2912"
+      },
+      "2021-05-13": {
+      "MACD_Signal": "3.4638",
+      "MACD": "3.1421",
+      "MACD_Hist": "-0.3218"
+      },
+      "2021-05-12": {
+      "MACD_Signal": "3.5443",
+      "MACD": "3.5229",
+      "MACD_Hist": "-0.0213"
+      },
+      "2021-05-11": {
+      "MACD_Signal": "3.5496",
+      "MACD": "3.7145",
+      "MACD_Hist": "0.1649"
+      },
+    }
+}

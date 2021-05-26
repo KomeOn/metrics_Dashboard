@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Header/>
     <hr style={{"background": "#fff", "margin": "0px"}} />
-    <HistoricalComponent />
+    <HistoricalComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );

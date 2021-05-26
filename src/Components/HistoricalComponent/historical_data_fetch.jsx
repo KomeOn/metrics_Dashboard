@@ -1,6 +1,6 @@
 import React from 'react';
 import HistoricalDataTable from './historical_data_table';
-import { companySymbols, apikey, demoData } from '../common';
+import { companySymbols, apikey, demoData, kpiChart1} from '../common';
 
 export default class HistoricalDataFetch extends React.Component {
     constructor(props){
@@ -14,19 +14,6 @@ export default class HistoricalDataFetch extends React.Component {
 
     async fetchData(event, compName = 'IndiaMART') {
         let companyName = companySymbols[compName]
-<<<<<<< HEAD
-        const respJsonData = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
-        const respJsonKPI = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${compName}&apikey=DIEVPM711FQ1O9HE`)
-        const respJsonKPIChart = await fetch(`https://www.alphavantage.co/query?function=RSI&symbol=${compName}&interval=weekly&time_period=10&series_type=open&apikey=${apikey}`);
-        const data = await respJsonData.json()
-        const kpis = await respJsonKPI.json()
-        const kpiChart = await respJsonKPIChart.json()
-        console.log("KPI API: ", respJsonKPI)
-        console.log("KPI API JSON: ", kpis)
-        console.log("KPI Chart",kpiChart);
-        // this.props.retrieveData(demoData, kpis)
-        this.props.retrieveData(data,kpis,kpiChart);
-=======
         // const respJsonData = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
         // const respJsonKPI = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${compName}&apikey=DIEVPM711FQ1O9HE`)
         // const data = await respJsonData.json()
@@ -35,8 +22,7 @@ export default class HistoricalDataFetch extends React.Component {
         // console.log("KPI API JSON: ", kpis)
         // this.props.retrieveData(demoData, kpis)
         // this.props.retrieveData(data,kpis)
-        this.props.retrieveData(demoData)
->>>>>>> 8b11ae9c55277f9b6c3791b78d66dcb1f4f05466
+        this.props.retrieveData(demoData, kpiChart1)
 
     }
 

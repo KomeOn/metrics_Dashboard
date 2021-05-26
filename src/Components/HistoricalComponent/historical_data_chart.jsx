@@ -9,7 +9,6 @@ export default class HistoricalDataChart extends React.Component {
     }
 
 	render() {
-<<<<<<< HEAD
 		let dateArray = [];
 		let dates = Object.keys(this.props.data)
 		dateArray = dates.map((d) => {
@@ -32,24 +31,31 @@ export default class HistoricalDataChart extends React.Component {
 				y :temp2 
 			})
 		}
-=======
-		
->>>>>>> 8b11ae9c55277f9b6c3791b78d66dcb1f4f05466
 		const options = {
 			exportEnabled: true,
 			title: {
-				text: "Company Stock Price"
+				text: "Company Stock Price", 
+			// fontColor: "#1266f1",
+			fontSize: 30,
+			padding: 10,
+			margin: 15,
+			backgroundColor: "rgba(255, 169, 0, 0.16)",
+			borderThickness: 1,
+			cornerRadius: 5,
+			fontWeight: "normal",
+			fontFamily: "tahoma",
 			},
 			axisX: {
-				valueFormatString: "D MMM"
+				valueFormatString: "D MMM YYYY"
 			},
 			axisY: {
 				title: "Price",
-				prefix: "₹"
+				prefix: "₹",
 			},
 			data: [{
 				type: "candlestick",
 				name: "Company",
+				color: "rgba(255, 169, 0, 0.5)",
 				showInLegend: true,
 				yValueFormatString: "₹##0.00",
 				xValueType: "dateTime",
@@ -57,7 +63,7 @@ export default class HistoricalDataChart extends React.Component {
 			}]
 		}
 		return (
-		<div>
+		<div class="container">
 			{dataPoints.length>0 &&
 			<CanvasJSChart options = {options}
 				 onRef={ref => this.chart = ref}

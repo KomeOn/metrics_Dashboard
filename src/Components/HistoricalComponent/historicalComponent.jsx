@@ -5,6 +5,7 @@ import HistoricalDataChart from './historical_data_chart';
 import HistoricalDataKPI from './historical_data_KPI';
 import '../../css/historical.css';
 import HistoricalDataKpiChart from './historical_data_kpi_chart';
+import CompanyOverview from '../CompanyOverview/CompanyOverview';
 
 export default class HistoricalComponent extends React.Component{
     constructor(props){
@@ -17,19 +18,20 @@ export default class HistoricalComponent extends React.Component{
         }
     }
 
-    retrieveData(data, kpi, kpiChart) {
-        console.log("KPI's: ", kpi)
-        this.setState({data: data['Monthly Adjusted Time Series'], kpi: kpi, kpiChart:kpiChart})
+    retrieveData(data, kpiChart) {
+        // console.log("KPI's: ", kpi)
+        this.setState({data: data['Monthly Adjusted Time Series'], kpiChart:kpiChart["Technical Analysis: RSI"]})
         console.log(this.state.data)
     }
     render() {
         return (
             <>
-                <div className="boxShadow">
+                <div className="" style={{"background": "#fff", "marginTop": "100px"}}>
                     <HistoricalDataFetch retrieveData={this.retrieveData} />
+                    <CompanyOverview data={this.props.data}/>
                 </div>
-                {/* <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} /> */}
-                <HistoricalDataKpiChart data = {this.state.kpiChart}/>
+                <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
+                { <HistoricalDataKpiChart data = {this.state.kpiChart}/>}
                 <HistoricalDataChart data={this.state.data} />
                 <HistoricalDataTable data={this.state.data} />
             </>

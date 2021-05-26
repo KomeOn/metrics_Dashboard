@@ -11,4 +11,13 @@
         font-size: 18px;
     }
 }
-
+.header-title{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    color:rgb(230, 227, 227);
+}
+.header {
+    border: 2px solid rgb(230, 227, 227);
+    background: black;
+}
+/* body {background-color: black;} */
