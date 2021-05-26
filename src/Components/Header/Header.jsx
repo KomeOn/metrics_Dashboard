@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 import '../../css/header.css';
-import logo from '../growth.png';
 // import './header';
 class Header extends React.Component {
     constructor(props) {
