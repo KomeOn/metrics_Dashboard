@@ -28,7 +28,7 @@ export default class HistoricalDataFetch extends React.Component {
     }
 
     handleChange(e) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         this.fetchData(e, e.target.value);
     }
 
