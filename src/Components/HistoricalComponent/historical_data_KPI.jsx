@@ -38,10 +38,10 @@ export default class HistoricalDataKPI extends React.Component {
         // console.log("props: ", this.props.kpi)
         let index = this.KPIs()
         // let index = 
-        return (
-            <div className="row" style={{"marginTop": "35px"}}>            
-                {index.map((item, index) => <KPI item={item} index={index} openModal={this.openModal}/>)}
-            </div>
+        return (null
+            // <div className="row" style={{"marginTop": "35px"}}>            
+            //     {index.map((item, index) => <KPI item={item} index={index} openModal={this.openModal}/>)}
+            // </div>
         )
     }
 }

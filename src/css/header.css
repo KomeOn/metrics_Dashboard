@@ -18,7 +18,7 @@
 }
 .header {
     border: 2px solid rgb(230, 227, 227);
-    background: black;
+    background: #212529;
 }
 
 /* Reset Select */
@@ -30,7 +30,7 @@ select {
     outline: 0;
     box-shadow: none;
     border: 0 !important;
-    background: #fde6c2;
+    background: rgb(208, 206, 206);
     background-image: none;
   }
   /* Remove IE arrow */

@@ -1,29 +1,45 @@
 .card1 button{
     width: 5rem;
+    padding: 0.5rem;
 }
-.card1 {
-    background-color: black;
-    
-}
+/* .card1 {
+    background-color:rgb(35, 33, 33);
+    margin-top: 0px;
+} */
 .company{
-    background-color: black;
-    width: 90%;
-    padding: 1rem;
-    margin: 5rem;
-    box-shadow: rgba(243, 156, 18, 0.6) 5px 5px, rgba(243, 156, 18, 0.4) 10px 10px, rgba(243, 156, 18, 0.2) 15px 15px, rgba(243, 156, 18, 0.2) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    background-color: #212529;
+    padding: 1rem 5rem;
+    /* box-shadow: rgba(243, 156, 18, 0.6) 5px 5px, rgba(243, 156, 18, 0.4) 10px 10px, rgba(243, 156, 18, 0.2) 15px 15px; */
 }
 .mb-3 {
     color:rgb(230, 227, 227);
     font-size:x-large;
-    box-shadow: rgba(243, 156, 18, 0.6) 5px 5px, rgba(243, 156, 18, 0.4) 10px 10px, rgba(243, 156, 18, 0.2) 15px 15px, rgba(240, 46, 170, 0.05) 25px 25px;
+    /* box-shadow: rgba(243, 156, 18, 0.6) 5px 5px, rgba(243, 156, 18, 0.4) 10px 10px, rgba(243, 156, 18, 0.2) 15px 15px, rgba(240, 46, 170, 0.05) 25px 25px; */
 }
 .col {
-    border: 2px solid #fde6c2;
+    /* border: 2px solid #fde6c2; */
     margin-top: 1rem;
     padding: 1rem; 
-    box-shadow: rgba(243, 156, 18, 0.6) 5px 5px;
+    /* box-shadow: rgb(230, 227, 227,0.6) 5px 5px; */
+    
 }
 .card1 h5{
     color:rgb(230, 227, 227);
     border-bottom: 2px solid rgb(230, 227, 227);
+    font-size: 1rem;
+}
+.card1 p{
+    color:rgb(226, 224, 224);
+    font-size: 0.9rem;
+}
+
+.col1{
+    background-color:rgba(255, 255, 255, 0.15);
+    border-left: 4px solid  rgb(230, 227, 227);
+}
+.row {
+    border-top-right-radius: 2px;
+    border-top:3px solid rgb(230, 227, 227);
+    border-right:4px solid rgb(230, 227, 227);
+    border-bottom: 4px solid black;
 }

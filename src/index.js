@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Header from './Components/Header/header.jsx';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode  style={{background:"#212529"}}>
     <Header/>
     <hr style={{"background": "#fff", "margin": "0px"}} />
     <HistoricalComponent/>
