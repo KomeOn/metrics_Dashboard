@@ -1,8 +1,10 @@
 /* FullChart.js */
 import React, { Component } from "react";
+import {daily_data} from '../../static/daily_data';
 import CanvasJSReact from './canvasjs.stock.react';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
+let chartData = daily_data[0]["Time Series (Daily)"];
  
  
 class FullChart extends Component {
@@ -13,9 +15,11 @@ class FullChart extends Component {
   }
  
   computeData() {
-      if(this.props.data) {
-          let keys = Object.keys(this.props.data);
-          let values = Object.values(this.props.data);
+      if(chartData) {
+        //   let keys = Object.keys(this.props.data);
+        //   let values = Object.values(this.props.data);
+        let keys = Object.keys(chartData);
+        let values = Object.values(chartData);
           let values1 = values.map((item) => Object.entries(item));
           var dps1 = [], dps2 = [], dps3 = [];
           for (var i = 0; i < keys.length; i++) {
