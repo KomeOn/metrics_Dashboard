@@ -2,7 +2,6 @@ import React from 'react';
 import '../../css/company.css'
 
 function Card(props) {
-    console.log("props",props)
     return (
         <div class="col col1">
             <div class="card1">

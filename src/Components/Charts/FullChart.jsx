@@ -8,28 +8,28 @@ var CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
 class FullChart extends Component {
   constructor(props) {
     super(props);
-    this.state = { dataPoints1: [], dataPoints2: [], dataPoints3: [], isLoaded: false };
+    this.state = { dataPoints1: [], dataPoints2: [], dataPoints3: [], isLoaded: false};
+    this.computeData = this.computeData.bind(this);
   }
  
-  componentDidMount() {
-    //Reference: https://reactjs.org/docs/faq-ajax.html#example-using-ajax-results-to-set-local-state
-    fetch("https://canvasjs.com/data/docs/ltcusd2018.json")
-      .then(res => res.json())
-      .then(
-        (data) => {
+  computeData() {
+      if(this.props.data) {
+          let keys = Object.keys(this.props.data);
+          let values = Object.values(this.props.data);
+          let values1 = values.map((item) => Object.entries(item));
           var dps1 = [], dps2 = [], dps3 = [];
-          for (var i = 0; i < data.length; i++) {
+          for (var i = 0; i < keys.length; i++) {
             dps1.push({
-              x: new Date(data[i].date),
+              x: new Date(keys[i]),
               y: [
-                Number(data[i].open),
-                Number(data[i].high),
-                Number(data[i].low),
-                Number(data[i].close)
+                Number(values1[i][0][1]),
+                Number(values1[i][1][1]),
+                Number(values1[i][2][1]),
+                Number(values1[i][3][1])
               ]
             });
-            dps2.push({x: new Date(data[i].date), y: Number(data[i].volume_usd)});
-            dps3.push({x: new Date(data[i].date), y: Number(data[i].close)});
+            dps2.push({x: new Date(keys[i]), y: Number(values1[i][5][1])});
+            dps3.push({x: new Date(keys[i]), y: Number(values1[i][3][1])});
           }
           this.setState({
             isLoaded: true,
@@ -37,8 +37,12 @@ class FullChart extends Component {
             dataPoints2: dps2,
             dataPoints3: dps3
           });
-        }
-      )
+      }
+  }
+
+  componentDidMount() {
+    console.log("didMount Full Chart Data", this.props.data)
+    this.computeData();
   }
  
   render() {
@@ -128,6 +132,7 @@ class FullChart extends Component {
       height: "450px",
       margin: "auto"
     };
+    console.log("Render Full Chart Data", this.props.data)
     return (
       <div class="bg-dark pt-4 pb-4"> 
         <div class="container">

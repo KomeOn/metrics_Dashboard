@@ -17,7 +17,7 @@ function CompanyOverview(props) {
     let result = retrieveCompanyData("IndiaMART Intermesh Pvt. Ltd");
     let entries = result ? Object.entries(result[0]):''
     return (
-        <div class="company" style={{marginRight:"0px;"}}>
+        <div class="company bg-dark" style={{marginRight:"0px;"}}>
             <h1 class="mb-3 "><span onClick={()=>setView(!view)}>{view ? <i class="fas fa-angle-up"></i> : <i class="fas fa-angle-down"></i>}</span> Overview </h1>
             {view ?
             <div class="row row-cols-1 row-cols-md-6 g-3">

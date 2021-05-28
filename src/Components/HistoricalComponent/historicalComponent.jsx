@@ -31,7 +31,7 @@ export default class HistoricalComponent extends React.Component{
                     <HistoricalDataFetch retrieveData={this.retrieveData} />
                     <CompanyOverview data={this.props.data}/>
                 </div>
-                <FullChart/>
+                <FullChart data={this.state.data}/>
                 <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
                 { <HistoricalDataKpiChart data = {this.state.kpiChart}/>}
                 {/* <HistoricalDataChart data={this.state.data} /> */}
