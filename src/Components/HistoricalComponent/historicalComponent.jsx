@@ -7,6 +7,7 @@ import '../../css/historical.css';
 import HistoricalDataKpiChart from './historical_data_kpi_chart';
 import CompanyOverview from '../CompanyOverview/CompanyOverview';
 import FullChart from '../Charts/FullChart';
+import ChartDashboard from '../Charts/ChartDashboard';
 
 export default class HistoricalComponent extends React.Component{
     constructor(props){
@@ -40,6 +41,7 @@ export default class HistoricalComponent extends React.Component{
                     <CompanyOverview data={this.props.data}/>
                 </div>
                 <FullChart data={this.state.data}/>
+                <ChartDashboard />
                 <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
                 { <HistoricalDataKpiChart data = {this.state.kpiChart}/>}
                 {/* <HistoricalDataChart data={this.state.data} /> */}

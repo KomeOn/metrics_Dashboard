@@ -92,8 +92,8 @@ class FullChart extends Component {
           shared: true
         },
         data: [{
-          name: "Price (in USD)",
-          yValueFormatString: "$#,###.##",
+          name: "Price (in INR)",
+          yValueFormatString: "₹#,###.##",
           type: "candlestick",
           dataPoints : this.state.dataPoints1
         }]
@@ -109,7 +109,7 @@ class FullChart extends Component {
           title: "Volume",
           prefix: "₹",
           tickLength: 0,
-          titleFontColor:"#E6E3E3"
+          // titleFontColor:"#E6E3E3"
         },
         toolTip: {
           shared: true
