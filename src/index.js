@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HistoricalComponent from './Components/HistoricalComponent/historicalComponent';
 import './index.css';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './Components/Header/header.jsx';
+import Header from './Components/Header/Header.jsx';
 
 ReactDOM.render(
   <React.StrictMode  style={{background:"#212529"}}>

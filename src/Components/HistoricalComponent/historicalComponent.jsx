@@ -11,19 +11,27 @@ import FullChart from '../Charts/FullChart';
 export default class HistoricalComponent extends React.Component{
     constructor(props){
         super(props);
-        this.retrieveData = this.retrieveData.bind(this);
         this.state = {
             data: '',
             kpi: '',
-            kpiChart:''
+            kpiChart:'',
+            dataM: '',
+            Cname: ''
         }
+        this.retrieveData = this.retrieveData.bind(this);
+        this.retrieveName = this.retrieveName.bind(this)
     }
 
-    retrieveData(data, kpiChart) {
+    retrieveData(data, kpiChart, dataM) {
         // console.log("KPI's: ", kpi)
-        this.setState({data: data['Monthly Adjusted Time Series'], kpiChart:kpiChart["Technical Analysis: RSI"]})
-        console.log(this.state.data)
+        this.setState({dataM: dataM['Monthly Adjusted Time Series'], kpiChart:kpiChart["Technical Analysis: RSI"], data: data["Time Series (Daily)"]})
+        // console.log(this.state.data)
     }
+
+    retrieveName(name) {
+        this.setState({Cname: name})
+    }
+    
     render() {
         return (
             <>
@@ -35,7 +43,7 @@ export default class HistoricalComponent extends React.Component{
                 <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
                 { <HistoricalDataKpiChart data = {this.state.kpiChart}/>}
                 {/* <HistoricalDataChart data={this.state.data} /> */}
-                <HistoricalDataTable data={this.state.data} />
+                <HistoricalDataTable cname={this.state.Cname} data={this.state.data} dataM={this.state.dataM}/>
             </>
         )
     } 

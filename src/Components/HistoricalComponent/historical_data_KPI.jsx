@@ -15,9 +15,9 @@ export default class HistoricalDataKPI extends React.Component {
 
     KPIs() {
         let arr = this.props.kpi || {}
-        console.log("KPI: ",arr)
+        // console.log("KPI: ",arr)
         let JsonArr = Object.entries(arr)
-        console.log("KPI: ",JsonArr)
+        // console.log("KPI: ",JsonArr)
         // let index = [];
         // index = JsonArr[0].map((keys) => {
         // return keys.slice(3).toUpperCase()
@@ -29,8 +29,8 @@ export default class HistoricalDataKPI extends React.Component {
     }
 
     openModal(evt, index) {
-        console.log("clicked by: ", index)
-        console.log("clicked by: ", evt)
+        // console.log("clicked by: ", index)
+        // console.log("clicked by: ", evt)
         
     }
 
@@ -47,7 +47,7 @@ export default class HistoricalDataKPI extends React.Component {
 }
 
 function KPI(props) {
-    console.log(props)
+    // console.log(props)
     return (
         <>
             <div className="col s12 m6 l3  modal-trigger" onClick={(e) => props.openModal(e, props.index)}>

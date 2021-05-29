@@ -45,7 +45,7 @@ class FullChart extends Component {
   }
 
   componentDidMount() {
-    console.log("didMount Full Chart Data", this.props.data)
+    // console.log("didMount Full Chart Data", this.props.data)
     this.computeData();
   }
  
@@ -136,7 +136,7 @@ class FullChart extends Component {
       height: "450px",
       margin: "auto"
     };
-    console.log("Render Full Chart Data", this.props.data)
+    // console.log("Render Full Chart Data", this.props.data)
     return (
       <div class="bg-dark pt-4 pb-4"> 
         <div class="container">

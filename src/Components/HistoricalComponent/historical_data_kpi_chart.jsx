@@ -8,7 +8,7 @@ class HistoricalDataKpiChart extends React.Component {
         super(props)
     }
     render() {
-		console.log("kpi chart",this.props.data)
+		// console.log("kpi chart",this.props.data)
 		const options = {
 			animationEnabled: true,
 			exportEnabled: true,

@@ -1,6 +1,6 @@
 import React from 'react';
 import HistoricalDataTable from './historical_data_table';
-import { companySymbols, apikey, demoData, kpiChart1} from '../common';
+import { companySymbols, apikey, demoData, demoDataM, kpiChart1} from '../common';
 import '../../css/header.css';
 export default class HistoricalDataFetch extends React.Component {
     constructor(props){
@@ -23,7 +23,7 @@ export default class HistoricalDataFetch extends React.Component {
         // console.log("KPI API JSON: ", kpis)
         // this.props.retrieveData(demoData, kpis)
         // this.props.retrieveData(data,kpis)
-        this.props.retrieveData(demoData, kpiChart1)
+        this.props.retrieveData(demoData, kpiChart1, demoDataM)
 
     }
 
