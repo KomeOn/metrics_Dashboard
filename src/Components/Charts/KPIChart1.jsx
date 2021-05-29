@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import CanvasJSReact from './canvasjs.react';
+import {rsi} from '../../static/rsi';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var dataPoints =[];
+let rsiData = rsi[0]["Technical Analysis: RSI"];
 
 class KPIChart1 extends Component {
 
     componentDidMount(){
-		var chart = this.chart;
-		fetch('https://canvasjs.com/data/gallery/react/nifty-stock-price.json')
-		.then(function(response) {
-			return response.json();
-		})
-		.then(function(data) {
-			for (var i = 0; i < data.length; i++) {
-				dataPoints.push({
-					x: new Date(data[i].x),
-					y: data[i].y
-				});
-			}
-			chart.render();
-		});
+        let entries = Object.entries(rsiData);
+        for (var i = 0; i < entries.length; i++) {
+            dataPoints.push({
+                x: new Date(entries[i][0]),
+                y: Number(entries[i][1]["RSI"])
+            });
+        }
+		this.chart.render();
 	}
     render() {	
 		const options = {
 			theme: "dark2",
 			title: {
-				text: "RSI"
+				text: "RSI",
+                fontSize:"20"
 			},
 			axisY: {
 				title: "RSI Value",
@@ -34,6 +31,7 @@ class KPIChart1 extends Component {
 			},
 			data: [{
 				type: "line",
+				color: "rgba(150,255, 75)",
 				xValueFormatString: "MMM YYYY",
 				yValueFormatString: "00.0000",
 				dataPoints: dataPoints

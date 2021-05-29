@@ -1,14 +1,7 @@
-.card1 button{
-    width: 5rem;
-    padding: 0.5rem;
-}
-/* .card1 {
-    background-color:rgb(35, 33, 33);
-    margin-top: 0px;
-} */
 .company{
     background-color: #212529;
     padding: 1rem 5rem;
+    margin: auto;
     /* box-shadow: rgba(243, 156, 18, 0.6) 5px 5px, rgba(243, 156, 18, 0.4) 10px 10px, rgba(243, 156, 18, 0.2) 15px 15px; */
 }
 .mb-3 {
@@ -42,4 +35,5 @@
     border-top:3px solid rgb(230, 227, 227);
     border-right:4px solid rgb(230, 227, 227);
     border-bottom: 4px solid black;
+    margin: auto;
 }
