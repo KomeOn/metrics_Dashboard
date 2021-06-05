@@ -8,6 +8,7 @@ export default class HistoricalDataTable extends React.Component {
     this.state = {
       clickExpand: false,
     }
+    
     this.columnHeaders = []
     this.rowValues = []
     this.table = []
@@ -54,6 +55,7 @@ export default class HistoricalDataTable extends React.Component {
     if(type==="Daily"){
       this.rowValues = []
       this.table = []
+      this.columnHeaders = []
       this.rowValues = this.tableData(this.props.data);
       this.table = this.dataOrder("Daily")
       console.log("table: ", this.table)
@@ -64,6 +66,14 @@ export default class HistoricalDataTable extends React.Component {
       this.table = []
       this.rowValues = this.tableData(this.props.dataM);
       this.table = this.dataOrder("Monthly")
+      console.log("table: ", this.table)
+      reactDom.render(<>{this.table[1]}</>, document.getElementsByTagName("tbody")[0] )
+    }
+    else if(type==="Yearly"){
+      this.rowValues = []
+      this.table = []
+      this.rowValues = this.tableData(this.props.dataY);
+      this.table = this.dataOrder("Yearly")
       console.log("table: ", this.table)
       reactDom.render(<>{this.table[1]}</>, document.getElementsByTagName("tbody")[0] )
     }
@@ -79,14 +89,14 @@ export default class HistoricalDataTable extends React.Component {
           this.rowValues.map((row) => {
             tableRows.push(
               <tr>
-                {row.map((r, i) => (i == 0 ? <th scope="row" className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
               </tr>)
           })
           first5 = this.rowValues.slice(0, 5)
           first5.map((row) => {
             first5table.push(
               <tr>
-                {row.map((r, i) => (i == 0 ? <th scope="row" className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
               </tr>)
           })
         }
@@ -96,18 +106,36 @@ export default class HistoricalDataTable extends React.Component {
           this.rowValues.map((row) => {
             tableRows.push(
               <tr>
-                {row.map((r, i) => (i == 0 ? <th scope="row" className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
               </tr>)
           })
           first5 = this.rowValues.slice(0, 5)
           first5.map((row) => {
             first5table.push(
               <tr>
-                {row.map((r, i) => (i == 0 ? <th scope="row" className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
               </tr>)
           })
         }
         return [tableRows, first5table]
+      case "Yearly": 
+      if (this.rowValues) {
+        this.rowValues.map((row) => {
+          tableRows.push(
+            <tr>
+              {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+            </tr>)
+        })
+        first5 = this.rowValues.slice(0, 5)
+        first5.map((row) => {
+          first5table.push(
+            <tr>
+              {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+            </tr>)
+        })
+      }
+      return [tableRows, first5table]
+    default: return;
     }
   }
   
@@ -129,10 +157,17 @@ export default class HistoricalDataTable extends React.Component {
     return (
         <div className="table-responsive py-4 mx-4">
           {this.props.data && 
-          <div>
+          <div className="container ">
+          <div className="row border border-0">
+          <div className="col-md-5">
             <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Daily")}}>Daily</MDBBtn>
             <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Monthly")}}>Monthly</MDBBtn>
-            <p>{this.props.Cname}</p>
+            <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Yearly")}}>Yearly</MDBBtn>
+            </div>
+            <h3 className="col-md-4 d-flex align-items-center">{this.props.cName}</h3>
+            <input className="col-md-3 mb-4 mt-4" value={this.rowValues[0][0]} type="date" />
+            {console.log(this.rowValues)}
+          </div>
           </div>}
           <table class="table table-sm table-hover text-center">
             <thead class="table-dark">

@@ -1,12 +1,7 @@
 import React from 'react';
-import { useEffect } from 'react';
 import '../../css/header.css';
 // import './header';
 class Header extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <>

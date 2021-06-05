@@ -16,7 +16,7 @@ function CompanyOverview(props) {
             <div class="company bg-dark">
             <h1 class="mb-3 "><span onClick={()=>setView(!view)}>{view ? <i class="fas fa-angle-up"></i> : <i class="fas fa-angle-down"></i>}</span> Overview </h1>
             {view ?
-            <div class="row row-cols-1 row-cols-md-6 g-3">
+            <div className="row row-cols-1 row-cols-md-6 g-3">
                 {entries && entries.map((item)=> { 
                     return <Card key1={item[0]} value1={item[1]}/>
                 })}

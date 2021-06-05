@@ -1,21 +1,11 @@
 export const yearly_data = [{
     "Meta Data": {
-    "1. Information": "Monthly Adjusted Prices and Volumes",
+    "1. Information": "Yearly Adjusted Prices and Volumes",
     "2. Symbol": "IBM",
     "3. Last Refreshed": "2021-05-25",
     "4. Time Zone": "US/Eastern"
     },
-    "Monthly Adjusted Time Series": {
-    "2021-05-25": {
-    "1. open": "143.8100",
-    "2. high": "148.5150",
-    "3. low": "140.9200",
-    "4. close": "143.7900",
-    "5. adjusted close": "143.7900",
-    "6. volume": "85410380",
-    "7. dividend amount": "1.6400"
-    },
-    
+    "Yearly Adjusted Time Series": {
     "2020-12-31": {
     "1. open": "123.9000",
     "2. high": "127.6900",

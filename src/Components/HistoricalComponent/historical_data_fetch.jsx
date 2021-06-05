@@ -1,6 +1,9 @@
 import React from 'react';
-import HistoricalDataTable from './historical_data_table';
-import { companySymbols, apikey, demoData, demoDataM, kpiChart1} from '../common';
+import { companySymbols, apikey, demoData, demoDataM, demoDataY, kpiChart1} from '../common';
+import {daily_data} from '../../static/daily_data';
+import {monthly_data} from '../../static/monthly_data';
+import {yearly_data} from '../../static/yearly_data';
+
 import '../../css/header.css';
 export default class HistoricalDataFetch extends React.Component {
     constructor(props){
@@ -14,7 +17,8 @@ export default class HistoricalDataFetch extends React.Component {
     }
 
     async fetchData(event, compName = 'IndiaMART') {
-        let companyName = companySymbols[compName]
+        console.log("Cama: ", compName )
+        // let companyName = companySymbols[compName]
         // const respJsonData = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
         // const respJsonKPI = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${compName}&apikey=DIEVPM711FQ1O9HE`)
         // const data = await respJsonData.json()
@@ -23,7 +27,8 @@ export default class HistoricalDataFetch extends React.Component {
         // console.log("KPI API JSON: ", kpis)
         // this.props.retrieveData(demoData, kpis)
         // this.props.retrieveData(data,kpis)
-        this.props.retrieveData(demoData, kpiChart1, demoDataM)
+        console.log("Data: ", daily_data.length, monthly_data, yearly_data)
+        this.props.retrieveData(daily_data, kpiChart1, monthly_data, yearly_data, compName)
 
     }
 
@@ -42,12 +47,12 @@ export default class HistoricalDataFetch extends React.Component {
     render() {
         return (
             <div>
-                <nav class="navbar navbar-dark fixed-top header">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">
-                            <h3 class="header-title">Metrics Dashboard</h3>
+                <nav className="navbar navbar-dark fixed-top header">
+                    <div className="container-fluid">
+                        <a className="navbar-brand" href="#">
+                            <h3 className="header-title">Metrics Dashboard</h3>
                         </a>
-                        <div class="select">
+                        <div className="select">
                             <select name="slct" id="slct" onChange={(e)=>this.handleChange(e)}>
                                 <option selected disabled>Choose a tech stock</option>
                                 <option value="HCL" id="0">HCL</option>
