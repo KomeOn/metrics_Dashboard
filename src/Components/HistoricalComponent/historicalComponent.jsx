@@ -39,14 +39,11 @@ export default class HistoricalComponent extends React.Component{
             <>
                 <div className="" style={{"background": "#fff", "marginTop": "5.05rem"}}>
                     <HistoricalDataFetch retrieveData={this.retrieveData} />
-                    <Navbar1/>
-                    <CompanyOverview data={this.props.data}/>
+                    <Navbar1 companyName={this.props.companyName} targetId={this.props.targetId}/>
                 </div>
-                <FullChart data={this.state.data}/>
-                <ChartDashboard />
+                <FullChart data={this.state.data} companyName={this.props.companyName} targetId={this.props.targetId}/>
                 <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
                 { <HistoricalDataKpiChart data = {this.state.kpiChart}/>}
-                {/* <HistoricalDataChart data={this.state.data} /> */}
                 <HistoricalDataTable cname={this.state.Cname} data={this.state.data} dataM={this.state.dataM}/>
             </>
         )

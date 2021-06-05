@@ -10,7 +10,7 @@ let chartData = daily_data[0]["Time Series (Daily)"];
 class FullChart extends Component {
   constructor(props) {
     super(props);
-    this.state = { dataPoints1: [], dataPoints2: [], dataPoints3: [], isLoaded: false};
+    this.state = { dataPoints1: [], dataPoints2: [], dataPoints3: [], isLoaded: false, companyName:'Company'};
     this.computeData = this.computeData.bind(this);
   }
  
@@ -47,14 +47,16 @@ class FullChart extends Component {
   componentDidMount() {
     // console.log("didMount Full Chart Data", this.props.data)
     this.computeData();
+    this.setState({companyName:this.props.companyName})
   }
  
   render() {
+    console.log("company name", this.state.companyName)
     const options = {
       theme: "dark2",
     // backgroundColor:"#212529",
       title:{
-        text:"Company StockChart with Date-Time Axis",
+        text: this.state.companyName+ " StockChart with Date-Time Axis",
         fontColor:"#E6E3E3",
         fontWeight:"bold",
         fontSize:"30",

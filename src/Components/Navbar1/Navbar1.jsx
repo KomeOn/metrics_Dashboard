@@ -4,16 +4,25 @@ import CompanyOverview from '../CompanyOverview/CompanyOverview';
 import '../../css/navbar1.css';
 
 class Navbar1 extends Component {
+    constructor(props) {
+        super(props);
+        this.state ={
+            overview : true,
+            dashboard : false
+        }
+    }
     render() {
         return (
             <div>
-                <nav class="navbar1">
-                    <ul>
-                        <li>Overview</li>
-                        <li>Dashboard</li>
+                <nav class="navbar1 bg-dark text-white">
+                    <ul class="">
+                        <li class="btn btn-success" onClick={(e) => this.setState({overview:true, dashboard:false})}>Overview</li>
+                        <li class="btn btn-warning" onClick={(e) => this.setState({dashboard:true, overview:false})}>Dashboard</li>
+                        <li class="btn btn-secondary" onClick={(e) => this.setState({overview:false, dashboard:false})}>Table</li>
                     </ul>
-                    <CompanyOverview/>
-                    <ChartDashboard/>
+                    {this.state.overview && !this.state.dashboard && <CompanyOverview companyName={this.props.companyName} targetId={this.props.targetId}/>}
+                    {!this.state.overview && this.state.dashboard && <ChartDashboard companyName={this.props.companyName} targetId={this.props.targetId}/>}
+                    {/* {!this.state.overview && !this.state.dashboard && <CompanyOverview/>} */}
                 </nav>
             </div>
         );

@@ -4,142 +4,37 @@
     margin: auto;
     /* box-shadow: rgba(243, 156, 18, 0.6) 5px 5px, rgba(243, 156, 18, 0.4) 10px 10px, rgba(243, 156, 18, 0.2) 15px 15px; */
 }
-.mb-3 {
+.overview {
     color:rgb(230, 227, 227);
     font-size:x-large;
-    /* box-shadow: rgba(243, 156, 18, 0.6) 5px 5px, rgba(243, 156, 18, 0.4) 10px 10px, rgba(243, 156, 18, 0.2) 15px 15px, rgba(240, 46, 170, 0.05) 25px 25px; */
+    text-align: center;
+    text-decoration: underline;
+    padding-bottom: 1.5rem;
+    width: 90%;
 }
-.col {
-    /* border: 2px solid #fde6c2; */
-    margin-top: 1rem;
-    padding: 1rem; 
-    /* box-shadow: rgb(230, 227, 227,0.6) 5px 5px; */
-    
-}
-.card1 h5{
-    color:rgb(230, 227, 227);
-    border-bottom: 2px solid rgb(230, 227, 227);
-    font-size: 1rem;
-}
-.card1 p{
-    color:rgb(226, 224, 224);
-    font-size: 0.9rem;
-}
-
-.col1{
-    background-color:#32373A;
-    border-left: 4px solid  rgb(230, 227, 227);
-}
-.row {
-    border-top-right-radius: 2px;
-    border-top:3px solid rgb(230, 227, 227);
-    border-right:4px solid rgb(230, 227, 227);
-    border-bottom: 4px solid black;
-    margin: auto;
-}
-/* new code*/
-/*	
-	Side Navigation Menu V2, RWD
-	===================
-	Author: https://github.com/pablorgarcia
- */
- 
- .container-2 h1 {
-   font-size:3em; 
-   font-weight: 300;
-   line-height:1em;
-   text-align: center;
-   color: #4DC3FA;
+ .tableOverview td{
+   padding:0.5rem;
+   margin:1rem;
+   width: 100%;
+   border:2px solid white
  }
- 
- .container-2 h2 {
-   font-size:1em; 
-   font-weight: 300;
-   text-align: center;
-   display: block;
-   line-height:1em;
-   padding-bottom: 2em;
-   color: #FB667A;
+ .tableOverview td:nth-child(odd) {
+       background-color: #13161d;
  }
- 
- .container-2 h2 a {
-   font-weight: 700;
-   text-transform: uppercase;
-   color: #FB667A;
-   text-decoration: none;
+ .tableOverview td:nth-child(even) {
+       background-color: #3e444e;
  }
- 
- .blue { color: #185875; }
- .yellow { color: #FFF842; }
- 
- .container-2 th h1 {
-       font-weight: bold;
-       font-size: 1em;
-   text-align: left;
-   color: #185875;
- }
- 
- .container-2 td {
-       font-weight: normal;
-       font-size: 1em;
-   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-        -moz-box-shadow: 0 2px 2px -2px #0E1119;
-             box-shadow: 0 2px 2px -2px #0E1119;
- }
- 
- .container-2 {
-       text-align: left;
-       overflow: hidden;
-       width:100%;
-       margin: 0 auto;
-   display: table;
-   padding: 0 0 8em 0;
- }
- 
- .container-2 td, .container-2 th {
-       padding-bottom: 2%;
-       padding-top: 2%;
-   padding-left:2%;  
- }
- 
- /* Background-color of the odd rows */
- .container-2 tr:nth-child(odd) {
-       background-color: #323C50;
- }
- 
- /* Background-color of the even rows */
- .container-2 tr:nth-child(even) {
-       background-color: #2C3446;
- }
- 
- .container-2 th {
-       background-color: #1F2739;
- }
- 
- .container-2 td:first-child { color: #FB667A; }
- 
- .container-2 tr:hover {
+ .tableOverview tr:hover {
     background-color: #464A52;
- -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-        -moz-box-shadow: 0 6px 6px -6px #0E1119;
-             box-shadow: 0 6px 6px -6px #0E1119;
+    box-shadow: 0 6px 6px -6px #0E1119;
  }
- 
- .container-2 td:hover {
-   background-color: #FFF842;
+ .tableOverview td:hover {
+   background-color: #92d4f0;
    color: #403E10;
    font-weight: bold;
-   
-   box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-   transform: translate3d(6px, -6px, 0);
-   
+   transform: translate2d(2px, -2px);
    transition-delay: 0s;
-       transition-duration: 0.4s;
-       transition-property: all;
+  transition-duration: 0.4s;
+  transition-property: all;
    transition-timing-function: line;
- }
- 
- @media (max-width: 800px) {
- .container-2 td:nth-child(4),
- .container-2 th:nth-child(4) { display: none; }
  }
