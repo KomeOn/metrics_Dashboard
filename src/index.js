@@ -5,12 +5,13 @@ import './index.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import reportWebVitals from './reportWebVitals';
 import Header from './Components/Header/header.jsx';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode  style={{background:"#212529"}}>
-    <Header/>
-    <hr style={{"background": "#fff", "margin": "0px"}} />
-    <HistoricalComponent/>
+    <App/>
+    {/* <Header/>
+    <HistoricalComponent/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

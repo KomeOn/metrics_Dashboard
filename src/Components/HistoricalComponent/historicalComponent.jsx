@@ -8,6 +8,7 @@ import HistoricalDataKpiChart from './historical_data_kpi_chart';
 import CompanyOverview from '../CompanyOverview/CompanyOverview';
 import FullChart from '../Charts/FullChart';
 import ChartDashboard from '../Charts/ChartDashboard';
+import Navbar1 from '../Navbar1/Navbar1';
 
 export default class HistoricalComponent extends React.Component{
     constructor(props){
@@ -30,6 +31,7 @@ export default class HistoricalComponent extends React.Component{
             <>
                 <div className="" style={{"background": "#fff", "marginTop": "5.05rem"}}>
                     <HistoricalDataFetch retrieveData={this.retrieveData} />
+                    <Navbar1/>
                     <CompanyOverview data={this.props.data}/>
                 </div>
                 <FullChart data={this.state.data}/>

@@ -10,17 +10,8 @@ class KPIChart2 extends Component {
     constructor() {
 		super();
 		this.toggleDataSeries = this.toggleDataSeries.bind(this);
-		this.addSymbols = this.addSymbols.bind(this);
 		this.computeData = this.computeData.bind(this);
 		this.state = {dataPoints2:'', dataPoints3:'', dataPoints4:''}
-	}
-	addSymbols(e) {
-		var suffixes = ["", "K", "M", "B"];
-		var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
-		if (order > suffixes.length - 1)
-			order = suffixes.length - 1;
-		var suffix = suffixes[order];
-		return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
 	}
 	toggleDataSeries(e){
 		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
@@ -44,7 +35,6 @@ class KPIChart2 extends Component {
 				x:new Date(macd1[i][0]),
 				y:Number(macd1[i][1]["MACD_Signal"])})
 		}
-		console.log("dt4",dt4)
 		this.setState({
 			dataPoints2:dt2,
 			dataPoints3 : dt3,
@@ -68,7 +58,6 @@ class KPIChart2 extends Component {
 			},
 			axisY: {
 				prefix: "",
-				labelFormatter: this.addSymbols
 			},
 			toolTip: {
 				shared: true

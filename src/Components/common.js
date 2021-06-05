@@ -2,7 +2,9 @@ export const companySymbols = {
     'HCL': 'BSE:532281',
     'IndiaMART': 'BSE:542726',
     'TCS': 'BSE:532540',
-    'Tech Mahindra': 'BSE:532755'
+    'Tech Mahindra': 'BSE:532755',
+    'Wipro' : 'BSE:507685 ',
+    'Infosys' : 'BSE:500209 ',
 }
 
 export const apikey = "DIEVPM711FQ1O9HE"

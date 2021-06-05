@@ -28,7 +28,7 @@ export default class HistoricalDataFetch extends React.Component {
     }
 
     handleChange(e) {
-        // console.log(e.target.value);
+        console.log(e);
         this.fetchData(e, e.target.value);
     }
 
@@ -50,12 +50,13 @@ export default class HistoricalDataFetch extends React.Component {
                         <div class="select">
                             <select name="slct" id="slct" onChange={(e)=>this.handleChange(e)}>
                                 <option selected disabled>Choose a tech stock</option>
-                                <option value="HCL">HCL</option>
-                                <option value="IndiaMART">IndiaMART</option>
-                                <option value="TCS">TCS</option>
-                                <option value="Tech Mahindra">Tech Mahindra</option>
-                                <option value="Infosys">Infosys</option>
-                                <option value="IBM">IBM</option>
+                                <option value="HCL" id="0">HCL</option>
+                                <option value="IndiaMART" id="1">IndiaMART</option>
+                                <option value="Wipro" id="2">Wipro</option>
+                                <option value="TCS" id="3">TCS</option>
+                                <option value="Tech Mahindra" id="4">Tech Mahindra</option>
+                                <option value="Infosys" id="5">Infosys</option>
+                                <option value="IBM" id="6">IBM</option>
                             </select>
                         </div>
                     </div>
