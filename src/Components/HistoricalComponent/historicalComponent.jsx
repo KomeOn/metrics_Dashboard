@@ -18,21 +18,18 @@ export default class HistoricalComponent extends React.Component{
             kpi: '',
             kpiChart:'',
             dataM: '',
-            Cname: ''
+            dataY: '',
+            cName: ''
         }
         this.retrieveData = this.retrieveData.bind(this);
-        this.retrieveName = this.retrieveName.bind(this)
     }
 
-    retrieveData(data, kpiChart, dataM) {
+    retrieveData(data, kpiChart, dataM, dataY, cName) {
         // console.log("KPI's: ", kpi)
-        this.setState({dataM: dataM['Monthly Adjusted Time Series'], kpiChart:kpiChart["Technical Analysis: RSI"], data: data["Time Series (Daily)"]})
-        // console.log(this.state.data)
+        this.setState({dataM: dataM[0]['Monthly Adjusted Time Series'], kpiChart:kpiChart["Technical Analysis: RSI"], data: data[0]["Time Series (Daily)"], dataY: dataY[0]["Yearly Adjusted Time Series"], cName: cName})
+        console.log(this.state)
     }
 
-    retrieveName(name) {
-        this.setState({Cname: name})
-    }
     
     render() {
         return (
