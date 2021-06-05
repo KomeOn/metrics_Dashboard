@@ -59,7 +59,7 @@ export default class HistoricalDataTable extends React.Component {
       this.rowValues = this.tableData(this.props.data);
       this.table = this.dataOrder("Daily")
       console.log("table: ", this.table)
-      reactDom.render(<>{this.table[1]}</>, document.getElementsByTagName("tbody")[0] )
+      reactDom.render(<>{this.table[1]}</>, document.getElementById("tableB") )
     }
     else if(type==="Monthly"){
       this.rowValues = []
@@ -67,7 +67,7 @@ export default class HistoricalDataTable extends React.Component {
       this.rowValues = this.tableData(this.props.dataM);
       this.table = this.dataOrder("Monthly")
       console.log("table: ", this.table)
-      reactDom.render(<>{this.table[1]}</>, document.getElementsByTagName("tbody")[0] )
+      reactDom.render(<>{this.table[1]}</>, document.getElementById("tableB") )
     }
     else if(type==="Yearly"){
       this.rowValues = []
@@ -75,7 +75,7 @@ export default class HistoricalDataTable extends React.Component {
       this.rowValues = this.tableData(this.props.dataY);
       this.table = this.dataOrder("Yearly")
       console.log("table: ", this.table)
-      reactDom.render(<>{this.table[1]}</>, document.getElementsByTagName("tbody")[0] )
+      reactDom.render(<>{this.table[1]}</>, document.getElementById("tableB") )
     }
   }
 
@@ -177,7 +177,7 @@ export default class HistoricalDataTable extends React.Component {
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tableB">
               {this.table[1]}
             </tbody>
           </table>

@@ -4,7 +4,7 @@ import HistoricalComponent from './Components/HistoricalComponent/historicalComp
 import './index.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './Components/Header/header.jsx';
+import Header from './Components/Header/Header.jsx';
 import App from './App';
 
 ReactDOM.render(
