@@ -1,13 +1,7 @@
 import React from 'react';
 import HistoricalDataFetch from './historical_data_fetch';
-import HistoricalDataTable from './historical_data_table';
-import HistoricalDataChart from './historical_data_chart';
-import HistoricalDataKPI from './historical_data_KPI';
 import '../../css/historical.css';
-import HistoricalDataKpiChart from './historical_data_kpi_chart';
-import CompanyOverview from '../CompanyOverview/CompanyOverview';
 import FullChart from '../Charts/FullChart';
-import ChartDashboard from '../Charts/ChartDashboard';
 import Navbar1 from '../Navbar1/Navbar1';
 
 export default class HistoricalComponent extends React.Component{
@@ -37,9 +31,6 @@ export default class HistoricalComponent extends React.Component{
                     <Navbar1 companyName={this.props.companyName} targetId={this.props.targetId}/>
                 </div>
                 <FullChart data={this.state.data} companyName={this.props.companyName} targetId={this.props.targetId}/>
-                <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
-                { <HistoricalDataKpiChart data = {this.state.kpiChart}/>}
-                {this.props.companyName && <HistoricalDataTable companyName={this.props.companyName} />}
             </>
         )
     } 

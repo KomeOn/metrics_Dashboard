@@ -284,14 +284,5 @@ export const Data = [{
             "6. volume": "103436500",
             "7. dividend amount": "0.0000"
         },
-        "2010-12-31": {
-            "1. open": "143.6100",
-            "2. high": "147.5000",
-            "3. low": "143.5100",
-            "4. close": "146.7600",
-            "5. adjusted close": "103.3292",
-            "6. volume": "93392800",
-            "7. dividend amount": "0.0000"
-        }
     }
 }]
