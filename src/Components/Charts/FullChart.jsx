@@ -4,22 +4,22 @@ import {daily_data} from '../../static/daily_data';
 import CanvasJSReact from './canvasjs.stock.react';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSStockChart = CanvasJSReact.CanvasJSStockChart;
-let chartData = daily_data[0]["Time Series (Daily)"];
+// let chartData = daily_data[0]["Time Series (Daily)"];
  
  
 class FullChart extends Component {
   constructor(props) {
     super(props);
-    this.state = { dataPoints1: [], dataPoints2: [], dataPoints3: [], isLoaded: false, companyName:'Company'};
+    this.state = { dataPoints1: [], dataPoints2: [], dataPoints3: [], isLoaded: false, companyName:'Company', chartData: '', data: ''};
     this.computeData = this.computeData.bind(this);
   }
  
   computeData() {
-      if(chartData) {
+      if(this.state.chartData) {
         //   let keys = Object.keys(this.props.data);
         //   let values = Object.values(this.props.data);
-        let keys = Object.keys(chartData);
-        let values = Object.values(chartData);
+        let keys = Object.keys(this.state.chartData);
+        let values = Object.values(this.state.chartData);
           let values1 = values.map((item) => Object.entries(item));
           var dps1 = [], dps2 = [], dps3 = [];
           for (var i = 0; i < keys.length; i++) {
@@ -46,7 +46,13 @@ class FullChart extends Component {
 
   componentDidMount() {
     // console.log("didMount Full Chart Data", this.props.data)
-    this.computeData();
+    import(`../../static/${this.props.companyName}_data.js`).then(
+      module => this.setState({data: module.Data})
+    ).then(
+      () => this.setState({chartData: this.state.data[0]["Time Series (Daily)"]})
+      ).then(
+        () => this.computeData()
+      )
     this.setState({companyName:this.props.companyName})
   }
  
