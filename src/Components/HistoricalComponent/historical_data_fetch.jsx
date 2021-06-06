@@ -11,6 +11,7 @@ export default class HistoricalDataFetch extends React.Component {
         this.fetchData = this.fetchData.bind(this)
         this.handleActive = this.handleActive.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.companySelected = this.companySelected.bind(this)
         this.state = {
             isLoading: false
         }
@@ -44,6 +45,14 @@ export default class HistoricalDataFetch extends React.Component {
         document.getElementById(id).classList.add("active")
     }
 
+    companySelected() {
+        console.log("com: ", this.props.companyName)
+        document.querySelector('#slct').value = this.props.companyName ? this.props.companyName : ''
+    }
+
+    componentDidMount() {
+        {this.props.companyName && this.companySelected()}
+    }
     render() {
         return (
             <div>

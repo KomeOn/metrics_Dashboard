@@ -27,7 +27,7 @@ export default class HistoricalComponent extends React.Component{
         return (
             <>
                 <div className="" style={{"background": "#fff", "marginTop": "5.05rem"}}>
-                    <HistoricalDataFetch retrieveData={this.retrieveData} />
+                    <HistoricalDataFetch companyName={this.props.companyName} retrieveData={this.retrieveData} />
                     <Navbar1 companyName={this.props.companyName} targetId={this.props.targetId}/>
                 </div>
                 <FullChart data={this.state.data} companyName={this.props.companyName} targetId={this.props.targetId}/>

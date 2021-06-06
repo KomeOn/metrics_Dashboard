@@ -1,5 +1,4 @@
 import React from 'react';
-import reactDom from 'react-dom';
 import { MDBBtn } from 'mdb-react-ui-kit';
 
 export default class HistoricalDataTable extends React.Component {
@@ -178,9 +177,9 @@ export default class HistoricalDataTable extends React.Component {
           <><div className="container ">
           <div className="row border border-0">
           <div className="col-md-5">
-            <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Daily")}}>Daily</MDBBtn>
-            <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Monthly")}}>Monthly</MDBBtn>
-            <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Yearly")}}>Yearly</MDBBtn>
+            <button type="button" className='btn mx-2 my-4 btn-success' onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Daily")}}>Daily</button>
+            <button type="button" className='btn mx-2 my-4 btn-success' onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Monthly")}}>Monthly</button>
+            <button type="button" className='btn mx-2 my-4 btn-success' onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Yearly")}}>Yearly</button>
             </div>
             <h3 className="col-md-4 d-flex align-items-center">{this.props.companyName}</h3>
             {/* <input className="col-md-3 mb-4 mt-4" value={this.rowValues[0][0]} type="date" /> */}
@@ -200,11 +199,13 @@ export default class HistoricalDataTable extends React.Component {
             </tbody>
           </table></>}
 
-          {this.state.data &&
-            <a className="btn-floating btn-large waves-effect waves-light red"
+        {this.state.data &&
+          <div className="text-center">
+            <button type="button" className="btn btn-primary btn-lg btn-floating" 
               onClick={() => { this.setState({ clickExpand: !this.state.clickExpand }) }}>
-              {this.state.clickExpand ? <i className="material-icons">expand_less</i> : <i className="material-icons">expand_more</i>}
-            </a>}
+              {this.state.clickExpand ? <i class="fas fa-chevron-circle-up fa-2x"></i> : <i class="fas fa-chevron-circle-down fa-2x"></i>}
+            </button>
+          </div>}
         </div>
     );
   }
