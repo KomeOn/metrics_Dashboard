@@ -7,11 +7,18 @@ export default class HistoricalDataTable extends React.Component {
     super(props);
     this.state = {
       clickExpand: false,
+      data: '',
+      columnHeaders: '',
+      rowValues: '',
+      table: ''
     }
     
-    this.columnHeaders = []
-    this.rowValues = []
-    this.table = []
+    // this.dailyData = ''
+    this.monthlyData = ''
+    this.yearlyData = ''
+    // this.columnHeaders = []
+    // this.rowValues = []
+    // this.table = []
     this.tableHeader = this.tableHeader.bind(this)
     this.tableData = this.tableData.bind(this)
     this.toggleButton = this.toggleButton.bind(this)
@@ -19,24 +26,30 @@ export default class HistoricalDataTable extends React.Component {
     this.dataOrder = this.dataOrder.bind(this)
   }
 
-  tableHeader() {
-    let val = Object.keys(this.props.data)[0]
-    let arr = this.props.data[val] || {}
-    let JsonArr = []
-    JsonArr.push(Object.keys(arr))
+  tableHeader(data) {
+    console.log("data: ",data)
+    let key = Object.values(data)
+    let val = Object.keys(key[0])
+    console.log("val: ",val)
+    // let arr = data[val] || {}
+    // let JsonArr = []
+    // JsonArr.push(val)
+    // console.log("JSONS: ", JsonArr)
     let index = [];
-    index = JsonArr[0].map((keys) => {
+    index = val.map((keys) => {
       return keys.slice(3).toUpperCase()
     })
     console.log("header: ", index)
     if (index.length > 0)
     index.unshift("DATE")
+    console.log("index: ", index)
     return index;
+    // return []
   }
 
   tableData(Dname) {
     let dataArr = [];
-    console.log(Dname)
+    console.log("tableData: ",Dname)
     for (const key in Dname) {
       let temp = [];
       temp.push(key + "");
@@ -53,29 +66,19 @@ export default class HistoricalDataTable extends React.Component {
 
   tableManipulation(evt, type) {
     if(type==="Daily"){
-      this.rowValues = []
-      this.table = []
-      this.columnHeaders = []
-      this.rowValues = this.tableData(this.props.data);
-      this.table = this.dataOrder("Daily")
-      console.log("table: ", this.table)
-      reactDom.render(<>{this.table[1]}</>, document.getElementById("tableB") )
+      this.setState({columnHeaders: this.tableHeader(this.state.data[0]["Time Series (Daily)"])})
+      this.setState({rowValues: this.tableData(this.state.data[0]["Time Series (Daily)"])})
+      this.setState({table: this.dataOrder("Daily")})
     }
     else if(type==="Monthly"){
-      this.rowValues = []
-      this.table = []
-      this.rowValues = this.tableData(this.props.dataM);
-      this.table = this.dataOrder("Monthly")
-      console.log("table: ", this.table)
-      reactDom.render(<>{this.table[1]}</>, document.getElementById("tableB") )
+      this.setState({columnHeaders: this.tableHeader(this.state.data[0]["Monthly Adjusted Time Series"])})
+      this.setState({rowValues: this.tableData(this.state.data[0]["Monthly Adjusted Time Series"])})
+      this.setState({table: this.dataOrder("Monthly")})
     }
     else if(type==="Yearly"){
-      this.rowValues = []
-      this.table = []
-      this.rowValues = this.tableData(this.props.dataY);
-      this.table = this.dataOrder("Yearly")
-      console.log("table: ", this.table)
-      reactDom.render(<>{this.table[1]}</>, document.getElementById("tableB") )
+      this.setState({columnHeaders: this.tableHeader(this.state.data[0]["Yearly Adjusted Time Series"])})
+      this.setState({rowValues: this.tableData(this.state.data[0]["Yearly Adjusted Time Series"])})
+      this.setState({table: this.dataOrder("Yearly")})
     }
   }
 
@@ -85,52 +88,52 @@ export default class HistoricalDataTable extends React.Component {
     let first5table = []
     switch(type){
       case "Daily":
-        if (this.rowValues) {
-          this.rowValues.map((row) => {
+        if (this.state.rowValues) {
+          this.state.rowValues.map((row) => {
             tableRows.push(
               <tr>
-                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active text-light">{r}</th> : <td className="text-light">{r}</td>))}
               </tr>)
           })
-          first5 = this.rowValues.slice(0, 5)
+          first5 = this.state.rowValues.slice(0, 5)
           first5.map((row) => {
             first5table.push(
               <tr>
-                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active text-light">{r}</th> : <td className="text-light">{r}</td>))}
               </tr>)
           })
         }
         return [tableRows, first5table]
       case "Monthly":
-        if (this.rowValues) {
-          this.rowValues.map((row) => {
+        if (this.state.rowValues) {
+          this.state.rowValues.map((row) => {
             tableRows.push(
               <tr>
-                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active text-light">{r}</th> : <td className="text-light">{r}</td>))}
               </tr>)
           })
-          first5 = this.rowValues.slice(0, 5)
+          first5 = this.state.rowValues.slice(0, 5)
           first5.map((row) => {
             first5table.push(
               <tr>
-                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+                {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active text-light">{r}</th> : <td className="text-light">{r}</td>))}
               </tr>)
           })
         }
         return [tableRows, first5table]
       case "Yearly": 
-      if (this.rowValues) {
-        this.rowValues.map((row) => {
+      if (this.state.rowValues) {
+        this.state.rowValues.map((row) => {
           tableRows.push(
             <tr>
-              {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+              {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active text-light">{r}</th> : <td className="text-light">{r}</td>))}
             </tr>)
         })
-        first5 = this.rowValues.slice(0, 5)
+        first5 = this.state.rowValues.slice(0, 5)
         first5.map((row) => {
           first5table.push(
             <tr>
-              {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active">{r}</th> : <td>{r}</td>))}
+              {row.map((r, i) => (i === 0 ? <th scope="row" index={i} className="table-active text-light">{r}</th> : <td className="text-light">{r}</td>))}
             </tr>)
         })
       }
@@ -148,45 +151,60 @@ export default class HistoricalDataTable extends React.Component {
     console.log("event: ", event)
   }
 
+  componentDidMount(){
+    import(`../../static/${this.props.companyName}_data.js`).then(
+      module => this.setState({data: module.Data})
+    ).then(
+      () => this.tableHeader(this.state.data[0]["Time Series (Daily)"])
+      ).then(columnHeaders => this.setState({columnHeaders: columnHeaders})).then(
+        () => console.log("headers: ", this.state.columnHeaders)
+      ).then(
+        () => this.tableData(this.state.data[0]["Time Series (Daily)"])
+      ).then(rowValues => this.setState({rowValues: rowValues})).then(
+        () => console.log("row: ", this.state.rowValues)
+      ).then(
+        () => this.dataOrder("Daily")
+      ).then(table => this.setState({table: table})).then(
+        () => console.log("table: ", this.state.table)
+      )
+  }
   render() {
     console.log("this: ", this.props)
-    this.columnHeaders = this.tableHeader();
-    this.rowValues = this.tableData(this.props.data);
-    this.table = this.dataOrder("Daily")
-    console.log("data: ", this.rowValues)
+    
+    console.log("data: ", this.state.rowValues)
     return (
         <div className="table-responsive py-4 mx-4">
-          {this.props.data && 
-          <div className="container ">
+          {this.state.data && 
+          <><div className="container ">
           <div className="row border border-0">
           <div className="col-md-5">
             <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Daily")}}>Daily</MDBBtn>
             <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Monthly")}}>Monthly</MDBBtn>
             <MDBBtn className='mx-2 my-4' color='info' toggle onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Yearly")}}>Yearly</MDBBtn>
             </div>
-            <h3 className="col-md-4 d-flex align-items-center">{this.props.cName}</h3>
-            <input className="col-md-3 mb-4 mt-4" value={this.rowValues[0][0]} type="date" />
-            {console.log(this.rowValues)}
+            <h3 className="col-md-4 d-flex align-items-center">{this.props.companyName}</h3>
+            {/* <input className="col-md-3 mb-4 mt-4" value={this.rowValues[0][0]} type="date" /> */}
+            {console.log(this.state.rowValues)}
           </div>
-          </div>}
+          </div>
           <table class="table table-sm table-hover text-center">
             <thead class="table-dark">
               <tr style={{ "color": "white" }}>
-                {this.columnHeaders.map((item) => (
+                {this.state.columnHeaders && this.state.columnHeaders.map((item) => (
                   <th scope="col">{item}</th>
                 ))}
               </tr>
             </thead>
             <tbody id="tableB">
-              {this.table[1]}
+              {this.state.clickExpand ? this.state.table[0] : this.state.table[1]}
             </tbody>
-          </table>
+          </table></>}
 
-          {/* {this.props.data &&
+          {this.state.data &&
             <a className="btn-floating btn-large waves-effect waves-light red"
               onClick={() => { this.setState({ clickExpand: !this.state.clickExpand }) }}>
               {this.state.clickExpand ? <i className="material-icons">expand_less</i> : <i className="material-icons">expand_more</i>}
-            </a>} */}
+            </a>}
         </div>
     );
   }

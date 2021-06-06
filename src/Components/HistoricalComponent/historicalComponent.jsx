@@ -25,10 +25,8 @@ export default class HistoricalComponent extends React.Component{
     }
 
     retrieveData(data, kpiChart, dataM, dataY, cName) {
-        // console.log("KPI's: ", kpi)
         this.setState({dataM: dataM[0]['Monthly Adjusted Time Series'], kpiChart:kpiChart["Technical Analysis: RSI"], data: data[0]["Time Series (Daily)"], dataY: dataY[0]["Yearly Adjusted Time Series"], cName: cName})
-        console.log(this.state)
-    }
+        }
 
     
     render() {
@@ -41,7 +39,7 @@ export default class HistoricalComponent extends React.Component{
                 <FullChart data={this.state.data} companyName={this.props.companyName} targetId={this.props.targetId}/>
                 <HistoricalDataKPI kpi={this.state.kpi} data={this.state.data} />
                 { <HistoricalDataKpiChart data = {this.state.kpiChart}/>}
-                <HistoricalDataTable cname={this.state.Cname} data={this.state.data} dataM={this.state.dataM}/>
+                {this.props.companyName && <HistoricalDataTable companyName={this.props.companyName} />}
             </>
         )
     } 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChartDashboard from '../Charts/ChartDashboard';
 import CompanyOverview from '../CompanyOverview/CompanyOverview';
+import HistoricalDataTable from '../HistoricalComponent/historical_data_table';
 import '../../css/navbar1.css';
 
 class Navbar1 extends Component {
@@ -22,7 +23,7 @@ class Navbar1 extends Component {
                     </ul>
                     {this.state.overview && !this.state.dashboard && <CompanyOverview companyName={this.props.companyName} targetId={this.props.targetId}/>}
                     {!this.state.overview && this.state.dashboard && <ChartDashboard companyName={this.props.companyName} targetId={this.props.targetId}/>}
-                    {/* {!this.state.overview && !this.state.dashboard && <CompanyOverview/>} */}
+                    {!this.state.overview && !this.state.dashboard && <HistoricalDataTable companyName={this.props.companyName} targetId={this.props.targetId}/>}
                 </nav>
             </div>
         );
