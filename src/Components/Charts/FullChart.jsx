@@ -49,7 +49,7 @@ class FullChart extends Component {
     import(`../../static/${this.props.companyName}_data.js`).then(
       module => this.setState({data: module.Data})
     ).then(
-      () => this.setState({chartData: this.state.data[0]["Time Series (Daily)"]})
+      () => this.setState({chartData: this.state.data[0]["Monthly Adjusted Time Series"]})
       ).then(
         () => this.computeData()
       )

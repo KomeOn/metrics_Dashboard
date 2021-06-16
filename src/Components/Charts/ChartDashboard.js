@@ -14,7 +14,7 @@ class ChartDashboard extends Component {
                     <div class="col text-center">
                         <div class="card bg-dark border border-primary rounded-3">
                             <div class="card-body">
-                                <h5 class="card-title text-white fst-italic text-decoration-underline">Relative Strength Index</h5>
+                                <h5 class="card-title text-white fst-italic text-decoration-underline">Simple Moving Average</h5>
                                 <KPIChart3/>
                             </div>
                         </div>
@@ -22,7 +22,7 @@ class ChartDashboard extends Component {
                     <div class="col text-center">
                         <div class="card bg-dark border border-primary rounded-3">
                             <div class="card-body">
-                                <h5 class="card-title text-white fst-italic text-decoration-underline">Simple Moving Average</h5>
+                                <h5 class="card-title text-white fst-italic text-decoration-underline">Exponential Moving Average</h5>
                                 <KPIChart4/>
                             </div>
                         </div>
@@ -30,7 +30,7 @@ class ChartDashboard extends Component {
                     <div class="col text-center">
                         <div class="card bg-dark border border-primary rounded-3">
                             <div class="card-body">
-                                <h5 class="card-title text-white fst-italic text-decoration-underline">Exponential Moving Average</h5>
+                                <h5 class="card-title text-white fst-italic text-decoration-underline">Relative Strength Index</h5>
                                 <KPIChart1/>
                             </div>
                         </div>
