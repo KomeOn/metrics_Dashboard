@@ -13,6 +13,7 @@ class Navbar1 extends Component {
         }
     }
     render() {
+        console.log('co: ', this.props.companyName)
         return (
             <div>
                 <nav class="navbar1 bg-dark text-white">
