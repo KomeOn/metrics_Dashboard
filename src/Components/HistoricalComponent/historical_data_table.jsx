@@ -177,7 +177,7 @@ export default class HistoricalDataTable extends React.Component {
           <><div className="container ">
           <div className="row border border-0">
           <div className="col-md-5">
-            <button type="button" className='btn mx-2 my-4 btn-success' onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Daily")}}>Daily</button>
+            <button type="button" className='btn mx-2 my-4 btn-success active' onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Daily")}}>Daily</button>
             <button type="button" className='btn mx-2 my-4 btn-success' onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Monthly")}}>Monthly</button>
             <button type="button" className='btn mx-2 my-4 btn-success' onClick={(e) => {this.toggleButton(e); this.tableManipulation(e, "Yearly")}}>Yearly</button>
             </div>
