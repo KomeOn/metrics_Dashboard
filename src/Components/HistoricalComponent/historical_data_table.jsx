@@ -156,8 +156,9 @@ export default class HistoricalDataTable extends React.Component {
   }
 
   componentDidUpdate() {
-    if(window.cName !== this.props.companyName)
-    this.dynamicImport(this.props.companyName)
+    if(window.cName !== this.props.companyName){
+      this.dynamicImport(this.props.companyName)
+    }
   }
 
   dynamicImport(cName) {

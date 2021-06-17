@@ -51,12 +51,13 @@ class FullChart extends Component {
   }
 
   componentDidUpdate() {
-    if(window.cName !== this.props.companyName)
-    this.dynamicImport(this.props.companyName)
+    if(window.cName1 !== this.props.companyName){
+      this.dynamicImport(this.props.companyName)
+    }
   }
 
   dynamicImport(cName) {
-    window.cName = cName
+    window.cName1 = cName
     import(`../../static/${cName}_data.js`).then(
       module => this.setState({data: module.Data})
     ).then(
@@ -64,7 +65,7 @@ class FullChart extends Component {
       ).then(
         () => this.computeData()
       )
-    this.setState({companyName:this.props.companyName})
+    this.setState({companyName:cName})
   }
  
   render() {
