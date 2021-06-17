@@ -57,7 +57,7 @@ class FullChart extends Component {
 
   dynamicImport(cName) {
     window.cName = cName
-    import(`../../static/${this.props.companyName}_data.js`).then(
+    import(`../../static/${cName}_data.js`).then(
       module => this.setState({data: module.Data})
     ).then(
       () => this.setState({chartData: this.state.data[0]["Monthly Adjusted Time Series"]})
