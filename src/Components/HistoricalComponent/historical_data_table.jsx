@@ -23,6 +23,7 @@ export default class HistoricalDataTable extends React.Component {
     this.toggleButton = this.toggleButton.bind(this)
     this.tableManipulation = this.tableManipulation.bind(this)
     this.dataOrder = this.dataOrder.bind(this)
+    this.dynamicImport = this.dynamicImport.bind(this)
   }
 
   tableHeader(data) {
@@ -149,9 +150,20 @@ export default class HistoricalDataTable extends React.Component {
     event.target.classList.add('active')
     console.log("event: ", event)
   }
-
+ 
   componentDidMount(){
-    import(`../../static/${this.props.companyName}_data.js`).then(
+    this.dynamicImport(this.props.companyName)
+  }
+
+  componentDidUpdate() {
+    if(window.cName !== this.props.companyName){
+      this.dynamicImport(this.props.companyName)
+    }
+  }
+
+  dynamicImport(cName) {
+    window.cName = cName
+    import(`../../static/${cName}_data.js`).then(
       module => this.setState({data: module.Data})
     ).then(
       () => this.tableHeader(this.state.data[0]["Time Series (Daily)"])

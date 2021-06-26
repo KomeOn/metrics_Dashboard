@@ -12,6 +12,7 @@ class FullChart extends Component {
     super(props);
     this.state = { dataPoints1: [], dataPoints2: [], dataPoints3: [], isLoaded: false, companyName:'Company', chartData: '', data: ''};
     this.computeData = this.computeData.bind(this);
+    this.dynamicImport = this.dynamicImport.bind(this)
   }
  
   computeData() {
@@ -46,14 +47,25 @@ class FullChart extends Component {
 
   componentDidMount() {
     // console.log("didMount Full Chart Data", this.props.data)
-    import(`../../static/${this.props.companyName}_data.js`).then(
+    this.dynamicImport(this.props.companyName)
+  }
+
+  componentDidUpdate() {
+    if(window.cName1 !== this.props.companyName){
+      this.dynamicImport(this.props.companyName)
+    }
+  }
+
+  dynamicImport(cName) {
+    window.cName1 = cName
+    import(`../../static/${cName}_data.js`).then(
       module => this.setState({data: module.Data})
     ).then(
       () => this.setState({chartData: this.state.data[0]["Monthly Adjusted Time Series"]})
       ).then(
         () => this.computeData()
       )
-    this.setState({companyName:this.props.companyName})
+    this.setState({companyName:cName})
   }
  
   render() {

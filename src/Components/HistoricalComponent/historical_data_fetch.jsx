@@ -17,7 +17,7 @@ export default class HistoricalDataFetch extends React.Component {
         }
     }
 
-    async fetchData(event, compName = 'IndiaMART') {
+    async fetchData(event, compName = 'IndiaMART', id=0) {
         console.log("Cama: ", compName )
         // let companyName = companySymbols[compName]
         // const respJsonData = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${companyName}&outputsize=full&apikey=${apikey}`)
@@ -29,13 +29,13 @@ export default class HistoricalDataFetch extends React.Component {
         // this.props.retrieveData(demoData, kpis)
         // this.props.retrieveData(data,kpis)
         console.log("Data: ", daily_data.length, monthly_data, yearly_data)
-        this.props.retrieveData(daily_data, kpiChart1, monthly_data, yearly_data, compName)
-
+        // this.props.retrieveData(daily_data, kpiChart1, monthly_data, yearly_data, compName)
+        this.props.retrieveCompName(compName, id)
     }
 
     handleChange(e) {
         console.log(e);
-        this.fetchData(e, e.target.value);
+        this.fetchData(e, e.target.value, e.target.selectedIndex-1);
     }
 
     handleActive(id) {
